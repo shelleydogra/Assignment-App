@@ -1,0 +1,437 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		586B24131AA1E6B200861B8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586B24121AA1E6B200861B8D /* AppDelegate.swift */; };
+		586B24161AA1E6B200861B8D /* Four_Point_A.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 586B24141AA1E6B200861B8D /* Four_Point_A.xcdatamodeld */; };
+		586B24181AA1E6B200861B8D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586B24171AA1E6B200861B8D /* ViewController.swift */; };
+		586B241B1AA1E6B200861B8D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 586B24191AA1E6B200861B8D /* Main.storyboard */; };
+		586B241D1AA1E6B200861B8D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 586B241C1AA1E6B200861B8D /* Images.xcassets */; };
+		586B24201AA1E6B200861B8D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 586B241E1AA1E6B200861B8D /* LaunchScreen.xib */; };
+		586B242C1AA1E6B200861B8D /* Four_Point_ATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586B242B1AA1E6B200861B8D /* Four_Point_ATests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		586B24261AA1E6B200861B8D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 586B24051AA1E6B200861B8D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 586B240C1AA1E6B200861B8D;
+			remoteInfo = "Four Point A";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		586B240D1AA1E6B200861B8D /* Four Point A.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Four Point A.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		586B24111AA1E6B200861B8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		586B24121AA1E6B200861B8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		586B24151AA1E6B200861B8D /* Four_Point_A.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Four_Point_A.xcdatamodel; sourceTree = "<group>"; };
+		586B24171AA1E6B200861B8D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		586B241A1AA1E6B200861B8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		586B241C1AA1E6B200861B8D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		586B241F1AA1E6B200861B8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		586B24251AA1E6B200861B8D /* Four Point ATests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Four Point ATests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		586B242A1AA1E6B200861B8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		586B242B1AA1E6B200861B8D /* Four_Point_ATests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Four_Point_ATests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		586B240A1AA1E6B200861B8D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		586B24221AA1E6B200861B8D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		586B24041AA1E6B200861B8D = {
+			isa = PBXGroup;
+			children = (
+				586B240F1AA1E6B200861B8D /* Four Point A */,
+				586B24281AA1E6B200861B8D /* Four Point ATests */,
+				586B240E1AA1E6B200861B8D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		586B240E1AA1E6B200861B8D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				586B240D1AA1E6B200861B8D /* Four Point A.app */,
+				586B24251AA1E6B200861B8D /* Four Point ATests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		586B240F1AA1E6B200861B8D /* Four Point A */ = {
+			isa = PBXGroup;
+			children = (
+				586B24121AA1E6B200861B8D /* AppDelegate.swift */,
+				586B24171AA1E6B200861B8D /* ViewController.swift */,
+				586B24191AA1E6B200861B8D /* Main.storyboard */,
+				586B241C1AA1E6B200861B8D /* Images.xcassets */,
+				586B241E1AA1E6B200861B8D /* LaunchScreen.xib */,
+				586B24141AA1E6B200861B8D /* Four_Point_A.xcdatamodeld */,
+				586B24101AA1E6B200861B8D /* Supporting Files */,
+			);
+			path = "Four Point A";
+			sourceTree = "<group>";
+		};
+		586B24101AA1E6B200861B8D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				586B24111AA1E6B200861B8D /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		586B24281AA1E6B200861B8D /* Four Point ATests */ = {
+			isa = PBXGroup;
+			children = (
+				586B242B1AA1E6B200861B8D /* Four_Point_ATests.swift */,
+				586B24291AA1E6B200861B8D /* Supporting Files */,
+			);
+			path = "Four Point ATests";
+			sourceTree = "<group>";
+		};
+		586B24291AA1E6B200861B8D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				586B242A1AA1E6B200861B8D /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		586B240C1AA1E6B200861B8D /* Four Point A */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 586B242F1AA1E6B200861B8D /* Build configuration list for PBXNativeTarget "Four Point A" */;
+			buildPhases = (
+				586B24091AA1E6B200861B8D /* Sources */,
+				586B240A1AA1E6B200861B8D /* Frameworks */,
+				586B240B1AA1E6B200861B8D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Four Point A";
+			productName = "Four Point A";
+			productReference = 586B240D1AA1E6B200861B8D /* Four Point A.app */;
+			productType = "com.apple.product-type.application";
+		};
+		586B24241AA1E6B200861B8D /* Four Point ATests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 586B24321AA1E6B200861B8D /* Build configuration list for PBXNativeTarget "Four Point ATests" */;
+			buildPhases = (
+				586B24211AA1E6B200861B8D /* Sources */,
+				586B24221AA1E6B200861B8D /* Frameworks */,
+				586B24231AA1E6B200861B8D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				586B24271AA1E6B200861B8D /* PBXTargetDependency */,
+			);
+			name = "Four Point ATests";
+			productName = "Four Point ATests";
+			productReference = 586B24251AA1E6B200861B8D /* Four Point ATests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		586B24051AA1E6B200861B8D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Shelley Dogra";
+				TargetAttributes = {
+					586B240C1AA1E6B200861B8D = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					586B24241AA1E6B200861B8D = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = 586B240C1AA1E6B200861B8D;
+					};
+				};
+			};
+			buildConfigurationList = 586B24081AA1E6B200861B8D /* Build configuration list for PBXProject "Four Point A" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 586B24041AA1E6B200861B8D;
+			productRefGroup = 586B240E1AA1E6B200861B8D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				586B240C1AA1E6B200861B8D /* Four Point A */,
+				586B24241AA1E6B200861B8D /* Four Point ATests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		586B240B1AA1E6B200861B8D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				586B241B1AA1E6B200861B8D /* Main.storyboard in Resources */,
+				586B24201AA1E6B200861B8D /* LaunchScreen.xib in Resources */,
+				586B241D1AA1E6B200861B8D /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		586B24231AA1E6B200861B8D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		586B24091AA1E6B200861B8D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				586B24181AA1E6B200861B8D /* ViewController.swift in Sources */,
+				586B24161AA1E6B200861B8D /* Four_Point_A.xcdatamodeld in Sources */,
+				586B24131AA1E6B200861B8D /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		586B24211AA1E6B200861B8D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				586B242C1AA1E6B200861B8D /* Four_Point_ATests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		586B24271AA1E6B200861B8D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 586B240C1AA1E6B200861B8D /* Four Point A */;
+			targetProxy = 586B24261AA1E6B200861B8D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		586B24191AA1E6B200861B8D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				586B241A1AA1E6B200861B8D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		586B241E1AA1E6B200861B8D /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				586B241F1AA1E6B200861B8D /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		586B242D1AA1E6B200861B8D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		586B242E1AA1E6B200861B8D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		586B24301AA1E6B200861B8D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Four Point A/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		586B24311AA1E6B200861B8D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Four Point A/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		586B24331AA1E6B200861B8D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Four Point ATests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Four Point A.app/Four Point A";
+			};
+			name = Debug;
+		};
+		586B24341AA1E6B200861B8D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Four Point ATests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Four Point A.app/Four Point A";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		586B24081AA1E6B200861B8D /* Build configuration list for PBXProject "Four Point A" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				586B242D1AA1E6B200861B8D /* Debug */,
+				586B242E1AA1E6B200861B8D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		586B242F1AA1E6B200861B8D /* Build configuration list for PBXNativeTarget "Four Point A" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				586B24301AA1E6B200861B8D /* Debug */,
+				586B24311AA1E6B200861B8D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		586B24321AA1E6B200861B8D /* Build configuration list for PBXNativeTarget "Four Point ATests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				586B24331AA1E6B200861B8D /* Debug */,
+				586B24341AA1E6B200861B8D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		586B24141AA1E6B200861B8D /* Four_Point_A.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				586B24151AA1E6B200861B8D /* Four_Point_A.xcdatamodel */,
+			);
+			currentVersion = 586B24151AA1E6B200861B8D /* Four_Point_A.xcdatamodel */;
+			path = Four_Point_A.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 586B24051AA1E6B200861B8D /* Project object */;
+}
