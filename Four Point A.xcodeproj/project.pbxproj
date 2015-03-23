@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		585AACC41AC0CD340059F413 /* CDFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585AACC31AC0CD340059F413 /* CDFetch.swift */; };
 		586B24131AA1E6B200861B8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586B24121AA1E6B200861B8D /* AppDelegate.swift */; };
 		586B24161AA1E6B200861B8D /* Four_Point_A.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 586B24141AA1E6B200861B8D /* Four_Point_A.xcdatamodeld */; };
 		586B24181AA1E6B200861B8D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586B24171AA1E6B200861B8D /* ViewController.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		585AACC31AC0CD340059F413 /* CDFetch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDFetch.swift; sourceTree = "<group>"; };
 		586B240D1AA1E6B200861B8D /* Four Point A.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Four Point A.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		586B24111AA1E6B200861B8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		586B24121AA1E6B200861B8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 			children = (
 				586B24121AA1E6B200861B8D /* AppDelegate.swift */,
 				586B24171AA1E6B200861B8D /* ViewController.swift */,
+				585AACC31AC0CD340059F413 /* CDFetch.swift */,
 				586B24191AA1E6B200861B8D /* Main.storyboard */,
 				586B241C1AA1E6B200861B8D /* Images.xcassets */,
 				586B241E1AA1E6B200861B8D /* LaunchScreen.xib */,
@@ -216,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				586B24181AA1E6B200861B8D /* ViewController.swift in Sources */,
+				585AACC41AC0CD340059F413 /* CDFetch.swift in Sources */,
 				586B24161AA1E6B200861B8D /* Four_Point_A.xcdatamodeld in Sources */,
 				586B24131AA1E6B200861B8D /* AppDelegate.swift in Sources */,
 			);
@@ -409,6 +413,7 @@
 				586B24311AA1E6B200861B8D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		586B24321AA1E6B200861B8D /* Build configuration list for PBXNativeTarget "Four Point ATests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +422,7 @@
 				586B24341AA1E6B200861B8D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
