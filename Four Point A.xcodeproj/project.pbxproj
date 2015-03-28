@@ -15,6 +15,7 @@
 		586B241D1AA1E6B200861B8D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 586B241C1AA1E6B200861B8D /* Images.xcassets */; };
 		586B24201AA1E6B200861B8D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 586B241E1AA1E6B200861B8D /* LaunchScreen.xib */; };
 		586B242C1AA1E6B200861B8D /* Four_Point_ATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586B242B1AA1E6B200861B8D /* Four_Point_ATests.swift */; };
+		589B69991AC749D100DB06D2 /* CDStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589B69981AC749D100DB06D2 /* CDStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		586B24251AA1E6B200861B8D /* Four Point ATests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Four Point ATests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		586B242A1AA1E6B200861B8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		586B242B1AA1E6B200861B8D /* Four_Point_ATests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Four_Point_ATests.swift; sourceTree = "<group>"; };
+		589B69981AC749D100DB06D2 /* CDStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 				586B24121AA1E6B200861B8D /* AppDelegate.swift */,
 				586B24171AA1E6B200861B8D /* ViewController.swift */,
 				585AACC31AC0CD340059F413 /* CDFetch.swift */,
+				589B69981AC749D100DB06D2 /* CDStore.swift */,
 				586B24191AA1E6B200861B8D /* Main.storyboard */,
 				586B241C1AA1E6B200861B8D /* Images.xcassets */,
 				586B241E1AA1E6B200861B8D /* LaunchScreen.xib */,
@@ -220,6 +223,7 @@
 			files = (
 				586B24181AA1E6B200861B8D /* ViewController.swift in Sources */,
 				585AACC41AC0CD340059F413 /* CDFetch.swift in Sources */,
+				589B69991AC749D100DB06D2 /* CDStore.swift in Sources */,
 				586B24161AA1E6B200861B8D /* Four_Point_A.xcdatamodeld in Sources */,
 				586B24131AA1E6B200861B8D /* AppDelegate.swift in Sources */,
 			);
