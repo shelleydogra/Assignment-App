@@ -14,9 +14,11 @@ import CoreData
 
 class CDFetch: NSObject, NSFetchedResultsControllerDelegate {
 
-     var context: NSManagedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
+    //var context: NSManagedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
     
     //var context: NSManagedObjectContext?
+    
+    let context = CDStore.studentData.managedObjectContext!
     
     var managedObjectContext = NSManagedObjectContext()
     var entityName = ""
