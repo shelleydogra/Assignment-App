@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5817DCA81AD26D95000C96CA /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5817DCA71AD26D95000C96CA /* Type.swift */; };
+		5817DCAA1AD26DAC000C96CA /* Term.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5817DCA91AD26DAC000C96CA /* Term.swift */; };
+		5817DCAC1AD26DCA000C96CA /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5817DCAB1AD26DCA000C96CA /* Student.swift */; };
+		5817DCAE1AD26DE1000C96CA /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5817DCAD1AD26DE1000C96CA /* Course.swift */; };
+		5817DCB01AD26E24000C96CA /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5817DCAF1AD26E24000C96CA /* Assignment.swift */; };
 		585AACC41AC0CD340059F413 /* CDFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585AACC31AC0CD340059F413 /* CDFetch.swift */; };
 		586B24131AA1E6B200861B8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586B24121AA1E6B200861B8D /* AppDelegate.swift */; };
 		586B24161AA1E6B200861B8D /* Four_Point_A.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 586B24141AA1E6B200861B8D /* Four_Point_A.xcdatamodeld */; };
@@ -29,6 +34,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5817DCA71AD26D95000C96CA /* Type.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Type.swift; path = ../Type.swift; sourceTree = "<group>"; };
+		5817DCA91AD26DAC000C96CA /* Term.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Term.swift; sourceTree = "<group>"; };
+		5817DCAB1AD26DCA000C96CA /* Student.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
+		5817DCAD1AD26DE1000C96CA /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		5817DCAF1AD26E24000C96CA /* Assignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assignment.swift; sourceTree = "<group>"; };
 		585AACC31AC0CD340059F413 /* CDFetch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDFetch.swift; sourceTree = "<group>"; };
 		586B240D1AA1E6B200861B8D /* Four Point A.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Four Point A.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		586B24111AA1E6B200861B8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -91,6 +101,11 @@
 				586B241C1AA1E6B200861B8D /* Images.xcassets */,
 				586B241E1AA1E6B200861B8D /* LaunchScreen.xib */,
 				586B24141AA1E6B200861B8D /* Four_Point_A.xcdatamodeld */,
+				5817DCAF1AD26E24000C96CA /* Assignment.swift */,
+				5817DCA71AD26D95000C96CA /* Type.swift */,
+				5817DCAD1AD26DE1000C96CA /* Course.swift */,
+				5817DCAB1AD26DCA000C96CA /* Student.swift */,
+				5817DCA91AD26DAC000C96CA /* Term.swift */,
 				586B24101AA1E6B200861B8D /* Supporting Files */,
 			);
 			path = "Four Point A";
@@ -221,11 +236,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5817DCAE1AD26DE1000C96CA /* Course.swift in Sources */,
 				586B24181AA1E6B200861B8D /* ViewController.swift in Sources */,
 				585AACC41AC0CD340059F413 /* CDFetch.swift in Sources */,
 				589B69991AC749D100DB06D2 /* CDStore.swift in Sources */,
 				586B24161AA1E6B200861B8D /* Four_Point_A.xcdatamodeld in Sources */,
+				5817DCAA1AD26DAC000C96CA /* Term.swift in Sources */,
 				586B24131AA1E6B200861B8D /* AppDelegate.swift in Sources */,
+				5817DCA81AD26D95000C96CA /* Type.swift in Sources */,
+				5817DCB01AD26E24000C96CA /* Assignment.swift in Sources */,
+				5817DCAC1AD26DCA000C96CA /* Student.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
