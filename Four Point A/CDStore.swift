@@ -12,7 +12,6 @@ class CDStore: NSObject {
    
     
     
-    
     // MARK:- Core Data Singleton
     class var studentData: CDStore {
 
@@ -21,8 +20,6 @@ class CDStore: NSObject {
         }
         return Single.instance
     }
-    
-    
     
     
     
@@ -90,11 +87,6 @@ class CDStore: NSObject {
             }
         }
     }
-    
-    
-    
-    
-    
-    
+
     
 }

@@ -14,38 +14,52 @@ import CoreData
 
 class CDFetch: NSObject, NSFetchedResultsControllerDelegate {
 
-    //var context: NSManagedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
+    let studentData = CDStore.studentData.managedObjectContext!
     
-    //var context: NSManagedObjectContext?
+    var entity: String!
     
-    let context = CDStore.studentData.managedObjectContext!
+    var sortKey: String!
     
-    var managedObjectContext = NSManagedObjectContext()
-    var entityName = ""
-    var sortOption: String = ""
-    var sortOrder:  Bool   = true
+    var sortOrder: Bool!
     
-    required init(entityNameIn: String, sortOptionIn: String, sortOrderIn: Bool) {
-        entityName = entityNameIn
-        sortOption = sortOptionIn
+    
+    //Default Constructor
+    override init(){
+        
+    }
+    
+    required init(entityNameIn: String) {
+        entity = entityNameIn
+    }
+    
+    
+    // Constructor with 2 arguments
+    convenience init(entityNameIn: String, sortKeyIn: String) {
+        self.init(entityNameIn: entityNameIn)
+        sortKey = sortKeyIn
+    }
+    
+    
+    // Constructor with 3 arguments
+    convenience init(entityNameIn: String, sortKeyIn: String, sortOrderIn: Bool) {
+        self.init(entityNameIn: entityNameIn, sortKeyIn: sortKeyIn)
         sortOrder = sortOrderIn
     }
     
-    var frc = NSFetchedResultsController()
+    // FETCH
     
-    func getFetchedResultsController() -> NSFetchedResultsController {
-        frc = NSFetchedResultsController(fetchRequest: listFetchRequest(), managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+    lazy var fetchRequest: NSFetchRequest = {
+        let fr = NSFetchRequest (entityName: self.entity)
+        fr.sortDescriptors = [NSSortDescriptor(key: self.sortKey, ascending: self.sortOrder)]
+        
+        return fr
+        }()
+    
+    lazy var fetchedResultsController: NSFetchedResultsController = {
+        var frc: NSFetchedResultsController = NSFetchedResultsController(fetchRequest: self.fetchRequest, managedObjectContext: self.studentData, sectionNameKeyPath: nil, cacheName: nil)
+        frc.delegate = self
+        
         return frc
-    }
-    
-    func listFetchRequest() -> NSFetchRequest {
-        let fetchRequest = NSFetchRequest(entityName: entityName)
-        
-        let sortDescriptor = NSSortDescriptor(key: sortOption, ascending: sortOrder)
-        
-        fetchRequest.sortDescriptors = [sortDescriptor]
-        
-        return fetchRequest
-    }
+        }()
     
 }
