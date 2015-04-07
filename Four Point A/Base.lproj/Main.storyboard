@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D113c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="eAK-sY-4NU">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Course Table View Controller-->
@@ -26,7 +27,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="uB8-Qa-xdK">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="v7G-gN-IL3"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="v7G-gN-IL3">
+                            <connections>
+                                <segue destination="bda-I5-UyT" kind="show" id="lug-pf-3gs"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </tableViewController>
@@ -34,11 +39,80 @@
             </objects>
             <point key="canvasLocation" x="-926.25" y="-96.5"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Add Course-->
+        <scene sceneID="iw9-Yn-qGE">
+            <objects>
+                <viewController id="bda-I5-UyT" customClass="AddCourseViewController" customModule="Four_Point_A" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Guh-Tp-u9c"/>
+                        <viewControllerLayoutGuide type="bottom" id="QAm-2r-HJ8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="621-IA-p4r">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Course Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KmG-Jf-No3">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="KmG-Jf-No3" firstAttribute="leading" secondItem="621-IA-p4r" secondAttribute="leadingMargin" constant="78" id="1El-Uv-Yj0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KmG-Jf-No3" secondAttribute="trailing" constant="78" id="HIV-x2-Ja1"/>
+                            <constraint firstItem="KmG-Jf-No3" firstAttribute="top" secondItem="Guh-Tp-u9c" secondAttribute="bottom" constant="74" id="VfF-2v-kbt"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="KmG-Jf-No3"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="1El-Uv-Yj0"/>
+                                <exclude reference="HIV-x2-Ja1"/>
+                                <exclude reference="VfF-2v-kbt"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="KmG-Jf-No3"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="1El-Uv-Yj0"/>
+                                <include reference="HIV-x2-Ja1"/>
+                                <include reference="VfF-2v-kbt"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Add Course" id="jSh-Hi-8jl">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="RW1-Y2-qtb">
+                            <connections>
+                                <action selector="cancelButton:" destination="bda-I5-UyT" id="c2A-IO-60d"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="1Nn-pQ-DAx">
+                            <connections>
+                                <action selector="saveButton:" destination="bda-I5-UyT" id="ORP-Sv-qN4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="courseNameTextField" destination="KmG-Jf-No3" id="6TR-GQ-bhB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tnj-VC-ov1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-308.25" y="-96.5"/>
+        </scene>
+        <!--Courses-->
         <scene sceneID="AgF-ae-8Xk">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Nfz-q2-7R2" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="mostRecent" id="nmr-Vz-gNu"/>
+                    <tabBarItem key="tabBarItem" title="Courses" id="nmr-Vz-gNu">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-15"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xe8-1t-9ls">
@@ -78,6 +152,7 @@
         <!--Assignments-->
         <scene sceneID="bJp-1c-Ym9">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="99S-Kb-1dp" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="B6R-HG-DFM" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JwN-ju-ag4"/>
@@ -88,11 +163,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Assignments" id="07O-cU-O07"/>
+                    <tabBarItem key="tabBarItem" title="Assignments" id="07O-cU-O07">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-15"/>
+                    </tabBarItem>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="99S-Kb-1dp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-870.75" y="665.5"/>
+            <point key="canvasLocation" x="-632.25" y="665.5"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="6G1-xu-dqx">
@@ -103,6 +179,7 @@
                         <viewControllerLayoutGuide type="bottom" id="iCh-9d-ytQ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="uiz-uK-9Rn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="18I-Kg-FQx">
@@ -146,6 +223,7 @@
                         <viewControllerLayoutGuide type="bottom" id="qVE-cl-QHH"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="GUk-qh-cBg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OqC-sV-3p7">
@@ -228,11 +306,13 @@
             </objects>
             <point key="canvasLocation" x="-290.25" y="1450.5"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Settings-->
         <scene sceneID="TcW-LE-7n4">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Io1-Sd-DV2" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="contacts" id="8Ni-LC-Rn5"/>
+                    <tabBarItem key="tabBarItem" title="Settings" id="8Ni-LC-Rn5">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-15"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="rNR-h5-pHf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

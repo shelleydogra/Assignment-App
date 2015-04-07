@@ -7,9 +7,36 @@
 //
 
 import UIKit
+import CoreData
 
-class CourseTableViewController: UITableViewController {
 
+class CourseTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+
+    
+    
+    
+    var fetchedStudentEntity = CDFetch(entityNameIn: "Course", sortKeyIn: "name", sortOrderIn: true)
+    
+    let course: Course!
+    
+    
+    func fetchData() -> NSFetchedResultsController {
+        let frc = fetchedStudentEntity.fetchedResultsController
+        return frc
+    }
+    
+    func updateUI() {
+        fetchData().performFetch(nil)
+        self.tableView.reloadData()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        updateUI()
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -35,15 +62,13 @@ class CourseTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
+
         return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
-        return 3
+
+        return fetchData().fetchedObjects?.count ?? 0
     }
 
     
@@ -57,10 +82,12 @@ class CourseTableViewController: UITableViewController {
         // cell.backgroundColor = Color.Scheme1().cellColor
         //cell.textLabel?.textColor = Color.Scheme1().highlightColor
         
+        let course = fetchData().objectAtIndexPath(indexPath) as Course
        
-        cell.label1.text = "Course"
-        cell.gradeLabel.text = "96%"
-        cell.nextAssignmentLabel.text = "Next Assignment is a really long assignemnt"
+        cell.label1.text = course.name
+        cell.gradeLabel.text = "90%"
+        cell.gradeLabel.textColor = Color.Scheme1().darkBlueColor
+        cell.nextAssignmentLabel.text = "Next Assignment info"
         
         
         cell.courseImage.image = UIImage(named: "monkey.png")
@@ -71,59 +98,18 @@ class CourseTableViewController: UITableViewController {
     //ADJUST CELL HEIGHT
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        
-        //var rowHeight = CourseTableViewCell().rowHeight
         return CourseTableViewCell().rowHeight
-
     }
     
     
+    // SEGUE
     
-    
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+
+        
     }
-    */
+    
+    
+
 
 }
