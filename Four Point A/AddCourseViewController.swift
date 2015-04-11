@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class AddCourseViewController: UIViewController {
+class AddCourseViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var courseNameTextField: UITextField!
     
@@ -18,18 +18,32 @@ class AddCourseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        //courseNameTextField.delegate = self
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        courseNameTextField.becomeFirstResponder()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+ 
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        self.view.endEditing(true)
+    }
     
     @IBAction func saveButton(sender: AnyObject) {
         
-        let course = NSEntityDescription.insertNewObjectForEntityForName("Course", inManagedObjectContext: studentData) as Course
+        let course = NSEntityDescription.insertNewObjectForEntityForName("Course", inManagedObjectContext: studentData) as! Course
         
         if (courseNameTextField.text != nil) {
             course.name = courseNameTextField.text
