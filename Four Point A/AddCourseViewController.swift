@@ -12,13 +12,18 @@ import CoreData
 class AddCourseViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var courseNameTextField: UITextField!
+    @IBOutlet weak var creditHoursTextField: UITextField!
     
     let studentData: NSManagedObjectContext = CDStore.studentData.managedObjectContext!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //courseNameTextField.delegate = self
+        
+        courseNameTextField.placeholder = "Course Name"
+        creditHoursTextField.placeholder = "Credit Hrs"
+        
+        
         
     }
     
@@ -47,6 +52,7 @@ class AddCourseViewController: UIViewController, UITextFieldDelegate {
         
         if (courseNameTextField.text != nil) {
             course.name = courseNameTextField.text
+            course.creditHours = NSNumberFormatter().numberFromString(creditHoursTextField.text)!
         }
         
         var error: NSError? = nil
