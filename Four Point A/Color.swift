@@ -30,9 +30,9 @@ class Color: UIColor {
     var darkBlueColor:   UIColor!
     var textColor:       UIColor!
     
-    var themeToSet = themeEnum.Dark
+    var themeToSet = theme.Dark
     
-    enum themeEnum {
+    enum theme {
         case Dark
         case Dim
         case Light
@@ -40,15 +40,15 @@ class Color: UIColor {
 
     override init(){
         super.init()
-         themeToSet = themeEnum.Dark
+         themeToSet = theme.Dark
     }
     
-    convenience init(themeIn: themeEnum) {
+    convenience init(themeIn: theme) {
         self.init()
         
         themeToSet = themeIn
 
-        if (themeToSet == themeEnum.Light){
+        if (themeToSet == .Light){
             lightTheme()
         } else if (themeToSet == .Dark) {
             darkTheme()

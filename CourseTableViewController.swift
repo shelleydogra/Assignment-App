@@ -13,12 +13,11 @@ class CourseTableViewController: UITableViewController, NSFetchedResultsControll
 
     var fetchedStudentEntity = CDFetch(entityNameIn: "Course", sortKeyIn: "name", sortOrderIn: true)
     
-    var color: Color = Color(themeIn: Color.themeEnum.Dark)
+    var color: Color = Color(themeIn: Color.theme.Light)
     
     var course: Course?
 
 
-    
     
     func fetchData() -> NSFetchedResultsController {
         let frc = fetchedStudentEntity.fetchedResultsController
@@ -71,19 +70,8 @@ class CourseTableViewController: UITableViewController, NSFetchedResultsControll
         
         let cell = tableView.dequeueReusableCellWithIdentifier("CourseCell", forIndexPath: indexPath) as! CourseTableViewCell
         
-        //let cell = tableView.dequeueReusableCellWithIdentifier("CourseCell", forIndexPath: indexPath) as! UITableViewCell
-        
         let course = fetchData().objectAtIndexPath(indexPath) as! Course
-       
-        //cell.label1.text = course.name
-        //cell.gradeLabel.text = "90%"
-        
-        //cell.nextAssignmentLabel.text = "Next Assignment info"
-        
-        //cell.courseImage.image = UIImage(named: "monkey.png")
-
-        //cell.label1?.text = course.name
-        
+    
         cell.courseNameLabel?.text = course.name
         cell.courseCellLabel2?.text = course.creditHours.description
         

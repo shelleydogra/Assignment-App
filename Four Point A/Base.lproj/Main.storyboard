@@ -60,8 +60,7 @@
                                                     <exclude reference="NuT-tO-O8O"/>
                                                 </mask>
                                             </variation>
-                                            <variation key="widthClass=compact" misplaced="YES">
-                                                <rect key="frame" x="330" y="66" width="37" height="33"/>
+                                            <variation key="widthClass=compact">
                                                 <mask key="constraints">
                                                     <include reference="NuT-tO-O8O"/>
                                                 </mask>
@@ -151,7 +150,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SIx-3d-sIE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1656.75" y="-596.5"/>
+            <point key="canvasLocation" x="-1716.75" y="-596.5"/>
         </scene>
         <!--currentCourseAssignments-->
         <scene sceneID="QBz-rI-v1M">
@@ -209,6 +208,7 @@
                         <viewControllerLayoutGuide type="bottom" id="2hc-xa-azK"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="i0I-0g-Y02">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EMQ-Du-G7H">
@@ -216,19 +216,40 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="139" y="121" width="97" height="30"/>
+                                    <rect key="frame" x="139" y="72" width="97" height="30"/>
                                 </variation>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U1V-M0-4gl">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="139" y="117" width="97" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="assignmentDateFieldAction:" destination="zJd-fb-dVY" eventType="editingDidEnd" id="nop-4E-U6Z"/>
+                                </connections>
+                            </textField>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wqX-38-xpA">
+                                <rect key="frame" x="0.0" y="-162" width="320" height="162"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="172" width="343" height="80"/>
+                                </variation>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="EMQ-Du-G7H"/>
+                                <exclude reference="U1V-M0-4gl"/>
+                                <exclude reference="wqX-38-xpA"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="EMQ-Du-G7H"/>
+                                <include reference="U1V-M0-4gl"/>
+                                <include reference="wqX-38-xpA"/>
                             </mask>
                         </variation>
                     </view>
@@ -246,7 +267,9 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="assignmentDueDate" destination="U1V-M0-4gl" id="bcR-W8-Zwn"/>
                         <outlet property="assignmentNameTextField" destination="EMQ-Du-G7H" id="cSG-Yj-N9V"/>
+                        <outlet property="pointsPickerView" destination="wqX-38-xpA" id="7Qz-fU-y6p"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oPS-RH-OdC" userLabel="First Responder" sceneMemberID="firstResponder"/>

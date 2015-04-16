@@ -17,6 +17,8 @@ class AssignmentViewController: UIViewController, UITableViewDataSource, UITable
     
     let studentData = CDStore.studentData.managedObjectContext!
     
+    let studentModel = CDStore.studentData.managedObjectModel
+    
     var assignment: Assignment!
     
     
@@ -27,12 +29,25 @@ class AssignmentViewController: UIViewController, UITableViewDataSource, UITable
     
     
     
+    
+
+   
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
     // Data Fetch
     // WE HAVE TO FETCH A COURSE FOR THE APPROPRIATE STUDENT
     lazy var fetchRequest: NSFetchRequest = {
         
         // ENTITY -> Course
-        let fr = NSFetchRequest (entityName: "Student")
+        let fr = NSFetchRequest (entityName: "Assignment")
         
         // SORT -> NAME OF COURSE
         fr.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
@@ -40,7 +55,7 @@ class AssignmentViewController: UIViewController, UITableViewDataSource, UITable
         //****** PREDICATE GIVES US THE STUDENT WHO IS TAKING THE COURSE
         //fr.predicate = NSPredicate(format: "takenByStudent.name == %@", self.student.name)
         
-        //fr.predicate = NSPredicate(format: "ANY student.rCourse.rAssignment == %@", self.student.rCourse.rAssignment)
+         fr.predicate = NSPredicate(format: "ANY course. == %@", self.course)
         
         return fr
         }()
@@ -75,11 +90,12 @@ class AssignmentViewController: UIViewController, UITableViewDataSource, UITable
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier(textCellIdentifier, forIndexPath: indexPath) as! UITableViewCell
-        //let assignment = fetchedResultsController.objectAtIndexPath(indexPath) as! Assignment
+        var assignment = fetchedResultsController.objectAtIndexPath(indexPath) as! Assignment
+        
         
         
         // Populate Cell
-        cell.textLabel?.text = "Test"
+        cell.textLabel?.text = assignment.name
         
         return cell
     }
