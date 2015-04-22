@@ -9,49 +9,69 @@
 import UIKit
 import CoreData
 
-class AddAssignmentViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class AddAssignmentViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate{
 
     let studentData = CDStore.studentData.managedObjectContext!
-    
-    //let assignment: Assignment? = nil
     
     var assignment: Assignment!
     
     var course: Course!
-    //var course: Course? = nil
     
     var AssignmentTVC: AssignmentTableViewController? = nil
     
-
+    var date: NSDate!
+    var dateString: String?
     
+    @IBOutlet weak var dateSelector: UIDatePicker!
     @IBOutlet weak var pointsPickerView: UIPickerView!
     
-    @IBOutlet weak var assignmentDueDate: UITextField!
     
     @IBOutlet weak var assignmentNameTextField: UITextField!
  
+    @IBOutlet weak var dueDateButtonOutlet: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // setup text fields
-        // assignment name
-        assignmentNameTextField.placeholder = "Assignment Name"
+        setupUI()
+        updateUI()
+        delegationHandler()
+
         
-        
-        
-        //pointsPickerView.selectRow(6, inComponent: 0, animated: true)
-        
-        pointsPickerView.dataSource = self
-        pointsPickerView.delegate = self
-        
-        
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
+    
+    func setupUI() {
+        println("setupUI for View: \(self.classForCoder.description())")
+        assignmentNameTextField.placeholder = "Assignment Name"
+
+        
+        
+        //set up date picker to only show dates
+        dateSelector.datePickerMode = UIDatePickerMode.Date
+        
+    }
+    
+    func updateUI() {
+        if date == nil {
+            dueDateButtonOutlet.setTitle("📅   dueDate", forState: UIControlState.Normal)
+        } else {
+            dueDateButtonOutlet.setTitle(date?.formattedShort, forState: UIControlState.Normal)
+        }
+
+    }
+    
+    func delegationHandler() {
+        pointsPickerView.dataSource = self
+        pointsPickerView.delegate = self
+        
+    }
+    
+    
     
     @IBAction func saveAssignmentButton(sender: AnyObject) {
         let assignment = NSEntityDescription.insertNewObjectForEntityForName("Assignment", inManagedObjectContext: studentData) as! Assignment
@@ -61,8 +81,17 @@ class AddAssignmentViewController: UIViewController, UIPickerViewDataSource, UIP
             assignment.name = assignmentNameTextField.text
             assignment.rCourse = self.course!
             assignment.isSubmitted = false
-            assignment.pointReceived = 9
+            
+            if (date != nil) {
+               assignment.dueDate = date!
+            }
+            
+            
             assignment.pointsPossible = 10
+           
+            debugLog(assignment.pointReceived)
+            
+            
         }
         
         var error: NSError? = nil
@@ -79,10 +108,12 @@ class AddAssignmentViewController: UIViewController, UIPickerViewDataSource, UIP
     }
 
     @IBAction func cancelButton(sender: AnyObject) {
+        self.studentData.rollback()
         dismissVC()
     }
     
 
+    
     func dismissVC(){
         navigationController?.popViewControllerAnimated(true)
     }
@@ -92,12 +123,30 @@ class AddAssignmentViewController: UIViewController, UIPickerViewDataSource, UIP
         sender.inputView = pointsPickerView
         pointsPickerView.targetForAction("handlePicker:", withSender: self)
         
-        
     }
     
     func hadlePicker(sender: UIPickerView){
-        assignmentDueDate.text = sender.description
+        
+   
+        
     }
+    
+    // MARK:- DATE SELECTOR METHODS
+    
+    @IBAction func dateSelectorAction(sender: UIDatePicker) {
+        displayDate()
+    }
+    
+    func displayDate() {
+        self.date = dateSelector.date
+        updateUI()
+    }
+    
+    
+    
+    
+    
+    
     // MARK:- PICKER VIEW METHODS
     
     var pickerData = [
@@ -114,8 +163,6 @@ class AddAssignmentViewController: UIViewController, UIPickerViewDataSource, UIP
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
         return pickerData[component][row]
     }
-
-
 
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
@@ -139,6 +186,26 @@ class AddAssignmentViewController: UIViewController, UIPickerViewDataSource, UIP
         label.text = pickerData[component][row]
         
         return label
+    }
+    
+    
+    func debugLog(print: AnyObject) {
+        let classString: String = NSStringFromClass(self.classForCoder)
+        let seperatedClassString: String = classString.componentsSeparatedByString(".").last!
+        
+        
+        println("Class: \(seperatedClassString)--> \(print)" )
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "toDatePicker" {
+            
+            //segue VC
+            let datePickerVC = segue.destinationViewController as! DatePickerViewController
+            
+            datePickerVC.date = self.date
+        
+        }
     }
 
 }

@@ -13,7 +13,12 @@
 		5817DCAE1AD26DE1000C96CA /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5817DCAD1AD26DE1000C96CA /* Course.swift */; };
 		5817DCB01AD26E24000C96CA /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5817DCAF1AD26E24000C96CA /* Assignment.swift */; };
 		5817DCB21AD27589000C96CA /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5817DCB11AD27589000C96CA /* Color.swift */; };
+		582957D51AE6E2A000D20A00 /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582957D41AE6E2A000D20A00 /* Debug.swift */; };
+		582957D71AE6F3B400D20A00 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582957D61AE6F3B400D20A00 /* Image.swift */; };
+		582957D91AE71D1D00D20A00 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582957D81AE71D1D00D20A00 /* Int.swift */; };
+		58386BA61AE31BE400E73ECE /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58386BA51AE31BE400E73ECE /* String.swift */; };
 		585AACC41AC0CD340059F413 /* CDFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585AACC31AC0CD340059F413 /* CDFetch.swift */; };
+		585E8A491AE6C2A7002B9CCA /* bgStarBlue.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 585E8A481AE6C2A7002B9CCA /* bgStarBlue.PNG */; };
 		586B24131AA1E6B200861B8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586B24121AA1E6B200861B8D /* AppDelegate.swift */; };
 		586B24161AA1E6B200861B8D /* Four_Point_A.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 586B24141AA1E6B200861B8D /* Four_Point_A.xcdatamodeld */; };
 		586B241B1AA1E6B200861B8D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 586B24191AA1E6B200861B8D /* Main.storyboard */; };
@@ -22,10 +27,13 @@
 		586B242C1AA1E6B200861B8D /* Four_Point_ATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586B242B1AA1E6B200861B8D /* Four_Point_ATests.swift */; };
 		587BCC621AD45DFF0006E9BE /* AddCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587BCC611AD45DFF0006E9BE /* AddCourseViewController.swift */; };
 		589B69991AC749D100DB06D2 /* CDStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589B69981AC749D100DB06D2 /* CDStore.swift */; };
+		58C65D131AE0629F00C9FE61 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C65D121AE0629F00C9FE61 /* Date.swift */; };
 		58D3F9481AD2FBC5007AD24B /* CourseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D3F9471AD2FBC5007AD24B /* CourseTableViewController.swift */; };
 		58D3F94B1AD31875007AD24B /* CourseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D3F9491AD31875007AD24B /* CourseTableViewCell.swift */; };
 		58D3F94C1AD31875007AD24B /* CourseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58D3F94A1AD31875007AD24B /* CourseTableViewCell.xib */; };
 		58D3F94F1AD354A0007AD24B /* monkey.png in Resources */ = {isa = PBXBuildFile; fileRef = 58D3F94E1AD354A0007AD24B /* monkey.png */; };
+		58DB88C51AE09CF30015C50D /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58DB88C41AE09CF30015C50D /* DatePickerViewController.swift */; };
+		58DB88C71AE0A1050015C50D /* Validate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58DB88C61AE0A1050015C50D /* Validate.swift */; };
 		58E56E801ADA191500834E63 /* AddAssignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E56E7F1ADA191500834E63 /* AddAssignmentViewController.swift */; };
 		58E56E841ADA19CC00834E63 /* AssignmentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E56E831ADA19CC00834E63 /* AssignmentTableViewController.swift */; };
 		58E56E8B1ADAEB9D00834E63 /* AssignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E56E8A1ADAEB9D00834E63 /* AssignmentViewController.swift */; };
@@ -48,7 +56,12 @@
 		5817DCAD1AD26DE1000C96CA /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		5817DCAF1AD26E24000C96CA /* Assignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assignment.swift; sourceTree = "<group>"; };
 		5817DCB11AD27589000C96CA /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		582957D41AE6E2A000D20A00 /* Debug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Debug.swift; sourceTree = "<group>"; };
+		582957D61AE6F3B400D20A00 /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		582957D81AE71D1D00D20A00 /* Int.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
+		58386BA51AE31BE400E73ECE /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		585AACC31AC0CD340059F413 /* CDFetch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDFetch.swift; sourceTree = "<group>"; };
+		585E8A481AE6C2A7002B9CCA /* bgStarBlue.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgStarBlue.PNG; sourceTree = "<group>"; };
 		586B240D1AA1E6B200861B8D /* Four Point A.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Four Point A.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		586B24111AA1E6B200861B8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		586B24121AA1E6B200861B8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -62,10 +75,13 @@
 		587BCC611AD45DFF0006E9BE /* AddCourseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCourseViewController.swift; sourceTree = "<group>"; };
 		589B69981AC749D100DB06D2 /* CDStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDStore.swift; sourceTree = "<group>"; };
 		58AF05481AD9A3850008A06D /* Four Point A-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Four Point A-Bridging-Header.h"; sourceTree = "<group>"; };
+		58C65D121AE0629F00C9FE61 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Date.swift; path = ../Date.swift; sourceTree = "<group>"; };
 		58D3F9471AD2FBC5007AD24B /* CourseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CourseTableViewController.swift; path = ../CourseTableViewController.swift; sourceTree = "<group>"; };
 		58D3F9491AD31875007AD24B /* CourseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseTableViewCell.swift; sourceTree = "<group>"; };
 		58D3F94A1AD31875007AD24B /* CourseTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CourseTableViewCell.xib; sourceTree = "<group>"; };
 		58D3F94E1AD354A0007AD24B /* monkey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = monkey.png; sourceTree = "<group>"; };
+		58DB88C41AE09CF30015C50D /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
+		58DB88C61AE0A1050015C50D /* Validate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validate.swift; sourceTree = "<group>"; };
 		58E56E7F1ADA191500834E63 /* AddAssignmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAssignmentViewController.swift; sourceTree = "<group>"; };
 		58E56E831ADA19CC00834E63 /* AssignmentTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssignmentTableViewController.swift; sourceTree = "<group>"; };
 		58E56E8A1ADAEB9D00834E63 /* AssignmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssignmentViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +108,7 @@
 		586B24041AA1E6B200861B8D = {
 			isa = PBXGroup;
 			children = (
+				582957D81AE71D1D00D20A00 /* Int.swift */,
 				586B240F1AA1E6B200861B8D /* Four Point A */,
 				586B24281AA1E6B200861B8D /* Four Point ATests */,
 				586B240E1AA1E6B200861B8D /* Products */,
@@ -111,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				586B24191AA1E6B200861B8D /* Main.storyboard */,
+				582957D41AE6E2A000D20A00 /* Debug.swift */,
 				58E56E871ADAE40800834E63 /* Course Views */,
 				58E56E881ADAE41800834E63 /* Assignment Views */,
 				58E56E891ADAE42A00834E63 /* Helper Classes */,
@@ -126,6 +144,7 @@
 				586B241E1AA1E6B200861B8D /* LaunchScreen.xib */,
 				58D3F94E1AD354A0007AD24B /* monkey.png */,
 				586B241C1AA1E6B200861B8D /* Images.xcassets */,
+				585E8A481AE6C2A7002B9CCA /* bgStarBlue.PNG */,
 				586B24121AA1E6B200861B8D /* AppDelegate.swift */,
 				58AF05481AD9A3850008A06D /* Four Point A-Bridging-Header.h */,
 				586B24111AA1E6B200861B8D /* Info.plist */,
@@ -168,8 +187,8 @@
 			children = (
 				58D3F9471AD2FBC5007AD24B /* CourseTableViewController.swift */,
 				587BCC611AD45DFF0006E9BE /* AddCourseViewController.swift */,
-				58D3F94A1AD31875007AD24B /* CourseTableViewCell.xib */,
 				58D3F9491AD31875007AD24B /* CourseTableViewCell.swift */,
+				58D3F94A1AD31875007AD24B /* CourseTableViewCell.xib */,
 			);
 			name = "Course Views";
 			sourceTree = "<group>";
@@ -187,9 +206,14 @@
 		58E56E891ADAE42A00834E63 /* Helper Classes */ = {
 			isa = PBXGroup;
 			children = (
-				585AACC31AC0CD340059F413 /* CDFetch.swift */,
+				58DB88C61AE0A1050015C50D /* Validate.swift */,
+				58DB88C41AE09CF30015C50D /* DatePickerViewController.swift */,
+				58C65D121AE0629F00C9FE61 /* Date.swift */,
+				58386BA51AE31BE400E73ECE /* String.swift */,
 				5817DCB11AD27589000C96CA /* Color.swift */,
 				589B69981AC749D100DB06D2 /* CDStore.swift */,
+				582957D61AE6F3B400D20A00 /* Image.swift */,
+				585AACC31AC0CD340059F413 /* CDFetch.swift */,
 			);
 			name = "Helper Classes";
 			sourceTree = "<group>";
@@ -279,6 +303,7 @@
 				586B241B1AA1E6B200861B8D /* Main.storyboard in Resources */,
 				58D3F94F1AD354A0007AD24B /* monkey.png in Resources */,
 				586B24201AA1E6B200861B8D /* LaunchScreen.xib in Resources */,
+				585E8A491AE6C2A7002B9CCA /* bgStarBlue.PNG in Resources */,
 				586B241D1AA1E6B200861B8D /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -299,10 +324,15 @@
 			files = (
 				58D3F9481AD2FBC5007AD24B /* CourseTableViewController.swift in Sources */,
 				58E56E8B1ADAEB9D00834E63 /* AssignmentViewController.swift in Sources */,
+				58386BA61AE31BE400E73ECE /* String.swift in Sources */,
+				58DB88C51AE09CF30015C50D /* DatePickerViewController.swift in Sources */,
 				5817DCAE1AD26DE1000C96CA /* Course.swift in Sources */,
 				5817DCB21AD27589000C96CA /* Color.swift in Sources */,
 				585AACC41AC0CD340059F413 /* CDFetch.swift in Sources */,
+				58DB88C71AE0A1050015C50D /* Validate.swift in Sources */,
 				58E56E841ADA19CC00834E63 /* AssignmentTableViewController.swift in Sources */,
+				582957D71AE6F3B400D20A00 /* Image.swift in Sources */,
+				58C65D131AE0629F00C9FE61 /* Date.swift in Sources */,
 				589B69991AC749D100DB06D2 /* CDStore.swift in Sources */,
 				58E56E801ADA191500834E63 /* AddAssignmentViewController.swift in Sources */,
 				586B24161AA1E6B200861B8D /* Four_Point_A.xcdatamodeld in Sources */,
@@ -310,8 +340,10 @@
 				586B24131AA1E6B200861B8D /* AppDelegate.swift in Sources */,
 				58D3F94B1AD31875007AD24B /* CourseTableViewCell.swift in Sources */,
 				587BCC621AD45DFF0006E9BE /* AddCourseViewController.swift in Sources */,
+				582957D91AE71D1D00D20A00 /* Int.swift in Sources */,
 				5817DCA81AD26D95000C96CA /* Type.swift in Sources */,
 				5817DCB01AD26E24000C96CA /* Assignment.swift in Sources */,
+				582957D51AE6E2A000D20A00 /* Debug.swift in Sources */,
 				5817DCAC1AD26DCA000C96CA /* Student.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

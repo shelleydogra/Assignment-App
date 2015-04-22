@@ -11,32 +11,27 @@ import CoreData
 
 class AssignmentTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
 
-    //Context 
-    
+    //Context
     let studentData = CDStore.studentData.managedObjectContext!
     
     var course: Course!
     
-    var assignment: Assignment!
+    var assignment: Assignment?
     
     
-    
-    
-    
-    // WE HAVE TO FETCH A COURSE FOR THE APPROPRIATE STUDENT
+    // WE HAVE TO FETCH assignment FOR THE APPROPRIATE Course
     lazy var fetchRequest: NSFetchRequest = {
         
-        // ENTITY -> Course
+        // ENTITY -> Assignment
         let fr = NSFetchRequest (entityName: "Assignment")
         
-        // SORT -> NAME OF COURSE
+        // SORT -> NAME OF Assignment
         fr.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         
-        //****** PREDICATE GIVES US THE STUDENT WHO IS TAKING THE COURSE
+        //****** PREDICATE
         //fr.predicate = NSPredicate(format: "takenByStudent.name == %@", self.student.name)
         
         fr.predicate = NSPredicate(format: "rCourse == %@", self.course)
-        
         return fr
         }()
     
@@ -56,11 +51,11 @@ class AssignmentTableViewController: UITableViewController, NSFetchedResultsCont
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        // UPDATING UI FOR THE
         updateUI()
     }
 
@@ -79,67 +74,38 @@ class AssignmentTableViewController: UITableViewController, NSFetchedResultsCont
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("AssignmentCell", forIndexPath: indexPath) as! UITableViewCell
-
+        
+        
         let assignment = fetchedResultsController.objectAtIndexPath(indexPath) as! Assignment
 
         cell.textLabel?.text = assignment.name
         
+        cell.detailTextLabel?.text = assignment.dueDate.formattedShort
+        
         return cell
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
-        return true
+    func setupUI() {
+        //background image .alpha() is an extension of UIImage in FILE -> Image.swift
+        var bgImage: UIImage = UIImage(named: "bgStarBlue.png")!.alpha(0.6)
+        
+        self.view.backgroundColor = UIColor(patternImage: bgImage)
+        
+        
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
+    
+    
+    
     
     // MARK: - Navigation
-
-   
+    // SEGUE PREPARATION FOR THE DATA GETTING PASSED AS WE SEGUE.
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        // CURRENT COURSE IS PASSED TO A VAR IN DESTINATION SO THE ASSIGNMENT IS ADD TO THE APPROPRIATE COURSE
         if segue.identifier == "toAddAssignmentVC" {
             let addAssignmentVC = segue.destinationViewController as! AddAssignmentViewController
             
+            // PASSING CURRENT course TO ADD ASSIGNMENT VIEW
             addAssignmentVC.course = course
         }
     }

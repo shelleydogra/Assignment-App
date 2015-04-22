@@ -21,4 +21,16 @@ class Assignment: NSManagedObject {
     @NSManaged var rCourse: Course
     @NSManaged var rType: NSSet
 
+    
+    
+    
+    
+    
+    override func awakeFromInsert() {
+        super.awakeFromInsert()
+        
+        self.pointReceived = 666
+    }
+    
+
 }

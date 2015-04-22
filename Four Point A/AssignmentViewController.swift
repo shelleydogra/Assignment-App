@@ -11,51 +11,37 @@ import CoreData
 
 class AssignmentViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
 
+    // MARK:- OUTLETS
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var assignmentNameLabel: UILabel!
+    @IBOutlet weak var daysLeftLabel: UILabel!
+    
     
     let textCellIdentifier = "TextCell"
     
     let studentData = CDStore.studentData.managedObjectContext!
-    
-    let studentModel = CDStore.studentData.managedObjectModel
-    
-    var assignment: Assignment!
-    
-    
-    var course: Course!
-    
 
-  
+    var assignment: Assignment?
+    
+    var debug: Debug?
     
     
     
-    
-
-   
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    // Data Fetch
+    // MARK: -
     // WE HAVE TO FETCH A COURSE FOR THE APPROPRIATE STUDENT
     lazy var fetchRequest: NSFetchRequest = {
         
-        // ENTITY -> Course
+        
+        
+        // ENTITY -> Assignment
         let fr = NSFetchRequest (entityName: "Assignment")
         
         // SORT -> NAME OF COURSE
-        fr.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+        fr.sortDescriptors = [NSSortDescriptor(key: "dueDate", ascending: true)]
         
-        //****** PREDICATE GIVES US THE STUDENT WHO IS TAKING THE COURSE
-        //fr.predicate = NSPredicate(format: "takenByStudent.name == %@", self.student.name)
+        //****** PREDICATE GIVES US THE Assignment with predicate
         
-         fr.predicate = NSPredicate(format: "ANY course. == %@", self.course)
+        fr.predicate = NSPredicate(format: "isSubmitted == 0")
         
         return fr
         }()
@@ -68,45 +54,105 @@ class AssignmentViewController: UIViewController, UITableViewDataSource, UITable
         return frc
         }()
     
+        func updateUI() {
+            fetchedResultsController.performFetch(nil)
+            self.tableView.reloadData()
+        }
+    
+        override func viewWillAppear(animated: Bool) {
+            super.viewWillAppear(true)
+            updateUI()
+        }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.delegate = self
-        tableView.dataSource = self
+        setupUI()
+        delegationHandler()
+        
+        
+        
+        
+        
+        // MARK:- DATE TESTING
+        // MARK:-
+        ///////////////////////////////// TESTing Date/////////////////////////////////
+        
+        
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = NSDateFormatterStyle.MediumStyle
+        
+        let date = NSDate().dateByAddingTimeInterval(21.days)
+        
+        
+        
+        
+        var currentDate = NSDate().formattedMedium
+        
+        //let dateFromString = currentDate.asDate
+        
+        
+        println("NSDate: \(date)")
+        println("currentDate: \(currentDate)")
+        // println("dateFromString: \(dateFromString)")
+        
+        
+        // println("EXT Long Date: \(NSDate().formattedLong)")
+        
+        println("EXT Date: \(NSDate().formattedMedium)")
+        
+        println("EXT Short Date: \(NSDate().formattedShort)")
+
+        
+    
+        
+        ///////////////////////////////// TESTing /////////////////////////////////////
 
     }
     
-    // MARK:  UITextFieldDelegate Methods
+    
+    // MARK:-  TABLEVIEW Methods
+    
+    
+    
+    // DIVIDES UP THE TABLE INTO GROUPS
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
+    
+    // # OF ROWS
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //return fetchedResultsController.fetchedObjects?.count ?? 0
-        return 1
+        
+        // COUNT OF OBJECTS FETCHED BUT IF NIL (??) THEN RETURN 0
+        return fetchedResultsController.fetchedObjects?.count ?? 0
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
+        // SETUP PROTOTYPE CELL
         let cell = tableView.dequeueReusableCellWithIdentifier(textCellIdentifier, forIndexPath: indexPath) as! UITableViewCell
-        var assignment = fetchedResultsController.objectAtIndexPath(indexPath) as! Assignment
         
-        
+        // GRAB THE CURRENT OBJECT FETCHED
+        let assignment = fetchedResultsController.objectAtIndexPath(indexPath) as! Assignment
         
         // Populate Cell
         cell.textLabel?.text = assignment.name
+        cell.detailTextLabel?.text = assignment.dueDate.formattedMedium
         
         return cell
     }
 
     
-    // MARK:  UITableViewDelegate Methods
+    // MARK:-  UITableViewDelegate Methods
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
-        let row = indexPath.row
-        println("row: ")
+        let assignment = fetchedResultsController.objectAtIndexPath(indexPath) as! Assignment
+        assignmentNameLabel.text = assignment.rCourse.name
+        daysLeftLabel.text = assignment.dueDate.formattedLong
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -115,14 +161,21 @@ class AssignmentViewController: UIViewController, UITableViewDataSource, UITable
     }
     
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // INITIAL VIEW METHODS
+    func setupUI() {
+        println("setupUI for View: \(self.classForCoder.description())")
+        assignmentNameLabel.attributedText = NSAttributedString(string: "Assignment")
+        assignmentNameLabel.textAlignment = NSTextAlignment.Center
+        
+        
+
     }
-    */
+    
+    func delegationHandler() {
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
 
 }

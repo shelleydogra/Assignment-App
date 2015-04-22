@@ -38,6 +38,12 @@ class CourseTableViewController: UITableViewController, NSFetchedResultsControll
         super.viewDidLoad()
 
         
+        
+        ////////// SETUP ////////////
+        
+        
+        
+        
         // REGISTER CUSTOM CELL
         //var nib = UINib(nibName: "CourseTableViewCell", bundle: nil)
         //self.tableView.registerNib(nib, forCellReuseIdentifier: "CourseCell")
@@ -45,7 +51,7 @@ class CourseTableViewController: UITableViewController, NSFetchedResultsControll
         
         
         tableView.delegate = self
-        view.backgroundColor = color.color
+        view.backgroundColor = color.darkBlueColor
 
     }
 
@@ -73,7 +79,7 @@ class CourseTableViewController: UITableViewController, NSFetchedResultsControll
         let course = fetchData().objectAtIndexPath(indexPath) as! Course
     
         cell.courseNameLabel?.text = course.name
-        cell.courseCellLabel2?.text = course.creditHours.description
+        cell.courseCellLabel2?.text = "Credit Hrs: " + course.creditHours.description
         
         return cell
     }

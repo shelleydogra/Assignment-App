@@ -36,12 +36,12 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="rAssignment" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Assignment" inverseName="rType" inverseEntity="Assignment" syncable="YES"/>
     </entity>
-    <fetchRequest name="AllAssignments" entity="Assignment" predicateString="isSubmitted == 0"/>
+    <fetchRequest name="AllAssignments" entity="Assignment" predicateString="name CONTAINS &quot;1&quot;"/>
     <elements>
-        <element name="Assignment" positionX="-234" positionY="-99" width="128" height="148"/>
-        <element name="Course" positionX="-423" positionY="-139" width="128" height="150"/>
-        <element name="Student" positionX="-603" positionY="-315" width="128" height="90"/>
-        <element name="Term" positionX="-621" positionY="-165" width="128" height="150"/>
-        <element name="Type" positionX="-72" positionY="-100" width="128" height="73"/>
+        <element name="Assignment" positionX="-236" positionY="-333" width="128" height="148"/>
+        <element name="Course" positionX="-252" positionY="-36" width="128" height="150"/>
+        <element name="Student" positionX="-450" positionY="-324" width="128" height="90"/>
+        <element name="Term" positionX="-468" positionY="-165" width="128" height="148"/>
+        <element name="Type" positionX="-47" positionY="-333" width="128" height="73"/>
     </elements>
 </model>

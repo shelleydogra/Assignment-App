@@ -11,20 +11,19 @@ import CoreData
 
 class AddCourseViewController: UIViewController, UITextFieldDelegate {
 
+    //OUTLETS
     @IBOutlet weak var courseNameTextField: UITextField!
     @IBOutlet weak var creditHoursTextField: UITextField!
     
     let studentData: NSManagedObjectContext = CDStore.studentData.managedObjectContext!
     
+    var validate = Validate()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
-        courseNameTextField.placeholder = "Course Name"
-        creditHoursTextField.placeholder = "Credit Hrs"
-        
-        
-        
+        setupUI()
+
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -35,8 +34,9 @@ class AddCourseViewController: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 
- 
+    
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
@@ -50,19 +50,24 @@ class AddCourseViewController: UIViewController, UITextFieldDelegate {
         
         let course = NSEntityDescription.insertNewObjectForEntityForName("Course", inManagedObjectContext: studentData) as! Course
         
-        if (courseNameTextField.text != nil) {
+        if ( courseNameTextField.text != nil &&
+            creditHoursTextField.text != nil ) {
+            
             course.name = courseNameTextField.text
             course.creditHours = NSNumberFormatter().numberFromString(creditHoursTextField.text)!
+        
+                
+            var error: NSError? = nil
+            studentData.save(&error)
+                
+            if(error != nil) {
+                println("error occoured while save studentData: \(error)")
+            }
+                
+            dismissVC()
         }
+
         
-        var error: NSError? = nil
-        studentData.save(&error)
-        
-        if(error != nil) {
-            println("error occoured while save studentData: \(error)")
-        }
-        
-        dismissVC()
     }
     
     
@@ -70,20 +75,54 @@ class AddCourseViewController: UIViewController, UITextFieldDelegate {
         dismissVC()
     }
     
+//    func findFisrtEmptyTextField() -> UITextField {
+//        let view = self.view
+//        for view in self.view.subviews {
+//            if view.isKindOfClass(UITextField) {
+//                let textField: UITextField = view as! UITextField
+//                if ( textField.text == nil) {
+//                    return textField
+//                }
+//            }
+//        }
+//    }
     
+    func validateAllTextFieldsInCurrentView() -> (validity: Bool, txtField: UITextField ){
+        
+        let view = UIView()
+        var valid = false
+        
+        for view in self.view.subviews {
+            if view.isKindOfClass(UITextField) {
+                let textField: UITextField = view as! UITextField
+                if (textField.text != nil) {
+                    valid = true
+                } else {
+                    valid = false
+                    println("tf: \(textField.description)")
+                    return(valid, textField)
+                }
+            }
+        }
+        return (valid, courseNameTextField)
+    }
+
     
     func dismissVC(){
         navigationController?.popViewControllerAnimated(true)
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func setupUI() {
+        courseNameTextField.placeholder  = "Course Name"
+        creditHoursTextField.placeholder = "Credit Hrs"
     }
-    */
+    
+
+    
+    
+    
+    
+    
+    
 
 }
