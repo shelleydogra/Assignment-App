@@ -27,26 +27,7 @@ extension NSDate {
         formatter.dateStyle = NSDateFormatterStyle.ShortStyle
         return formatter.stringFromDate(self)
     }
-    
-    var subtractDays: Int {
-        var calendar: NSCalendar = NSCalendar.currentCalendar()
-        
-        let dayComponents = calendar.components(NSCalendarUnit.CalendarUnitDay, fromDate: NSDate(), toDate: NSDate(), options: nil)
-        
-        let days = dayComponents.day
-        
-        return days
-    }
-    
-    func tillDate(dueDate date: NSDate) -> Int {
-        var calendar: NSCalendar = NSCalendar.currentCalendar()
-        
-        let dayComponents = calendar.components(NSCalendarUnit.CalendarUnitDay, fromDate: NSDate(), toDate: date, options: nil)
-        
-        let days = dayComponents.day
-        
-        return days
-    }
+
     
 }
 

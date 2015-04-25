@@ -13,10 +13,9 @@ class CourseTableViewController: UITableViewController, NSFetchedResultsControll
 
     var fetchedStudentEntity = CDFetch(entityNameIn: "Course", sortKeyIn: "name", sortOrderIn: true)
     
-    var color: Color = Color(themeIn: Color.theme.Light)
+    var color: Color = Color(themeIn: Color.theme.Dark)
     
     var course: Course?
-
 
     
     func fetchData() -> NSFetchedResultsController {
@@ -24,6 +23,7 @@ class CourseTableViewController: UITableViewController, NSFetchedResultsControll
         return frc
     }
     
+
     func updateUI() {
         fetchData().performFetch(nil)
         self.tableView.reloadData()
@@ -36,23 +36,18 @@ class CourseTableViewController: UITableViewController, NSFetchedResultsControll
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
+        setupUI()
         
         ////////// SETUP ////////////
-        
-        
-        
-        
+
         // REGISTER CUSTOM CELL
         //var nib = UINib(nibName: "CourseTableViewCell", bundle: nil)
         //self.tableView.registerNib(nib, forCellReuseIdentifier: "CourseCell")
-        //
-        
-        
+    }
+    
+    func setupUI() {
         tableView.delegate = self
-        view.backgroundColor = color.darkBlueColor
-
+        view.backgroundColor = color.lightBackground
     }
 
     override func didReceiveMemoryWarning() {
@@ -61,8 +56,7 @@ class CourseTableViewController: UITableViewController, NSFetchedResultsControll
     }
     
     // MARK: - Table view data source
-    
-    
+ 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -79,16 +73,23 @@ class CourseTableViewController: UITableViewController, NSFetchedResultsControll
         let course = fetchData().objectAtIndexPath(indexPath) as! Course
     
         cell.courseNameLabel?.text = course.name
-        cell.courseCellLabel2?.text = "Credit Hrs: " + course.creditHours.description
+        cell.courseCellLabel2?.text =  course.creditHours.description + " Hrs."
+        cell.countOfAssignmentsDueLabel?.text = course.rAssignment.count.description + " Due"
+
         
         return cell
     }
 
+
+    
     //ADJUST CELL HEIGHT
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return CourseTableViewCell().rowHeight
     }
+    
+ 
+    
     // SEGUE
     
 //    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

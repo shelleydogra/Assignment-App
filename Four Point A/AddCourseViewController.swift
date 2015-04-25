@@ -21,12 +21,13 @@ class AddCourseViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupUI()
 
     }
     
     override func viewWillAppear(animated: Bool) {
+        // Will put the focus on the first Text field and bring up the keyboard
         courseNameTextField.becomeFirstResponder()
     }
 
@@ -46,67 +47,50 @@ class AddCourseViewController: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
     }
     
+    // SAVE BUTTON ACTION
     @IBAction func saveButton(sender: AnyObject) {
         
+        // INSERT FOR THE course Entity: Course and Context: studentData
         let course = NSEntityDescription.insertNewObjectForEntityForName("Course", inManagedObjectContext: studentData) as! Course
         
-        if ( courseNameTextField.text != nil &&
-            creditHoursTextField.text != nil ) {
+        // USER INPUT VALIDATION AND FEEDBACK
+        switch true {
+            case courseNameTextField.text.isEmpty:
+                alert("Text Field Empty", withMessage: "Enter Course Name", andButtonTitle: "OK", andhandler: self.courseNameTextField.becomeFirstResponder())
             
-            course.name = courseNameTextField.text
-            course.creditHours = NSNumberFormatter().numberFromString(creditHoursTextField.text)!
-        
+            case creditHoursTextField.text.isEmpty:
+                alert("Hours Field Empty", withMessage: "Enter Number of Hours", andButtonTitle: "OK", andhandler: self.creditHoursTextField.becomeFirstResponder())
+            
+            default: // SAVE
+                course.name = courseNameTextField.text
+                course.creditHours = creditHoursTextField.text.toInt()!
                 
-            var error: NSError? = nil
-            studentData.save(&error)
+                var error: NSError? = nil
+                studentData.save(&error)
                 
-            if(error != nil) {
-                println("error occoured while save studentData: \(error)")
-            }
-                
-            dismissVC()
+                if(error != nil) {
+                    println("error occoured while save studentData: \(error)")
+                }
+                dismissVC()
         }
-
-        
+        self.studentData.rollback()
     }
     
     
     @IBAction func cancelButton(sender: AnyObject) {
+        self.studentData.rollback()
         dismissVC()
     }
     
-//    func findFisrtEmptyTextField() -> UITextField {
-//        let view = self.view
-//        for view in self.view.subviews {
-//            if view.isKindOfClass(UITextField) {
-//                let textField: UITextField = view as! UITextField
-//                if ( textField.text == nil) {
-//                    return textField
-//                }
-//            }
-//        }
-//    }
-    
-    func validateAllTextFieldsInCurrentView() -> (validity: Bool, txtField: UITextField ){
+    func alert (titleIn: String, withMessage messageIn: String, andButtonTitle buttonTitleIn: String, andhandler handler: AnyObject) {
         
-        let view = UIView()
-        var valid = false
-        
-        for view in self.view.subviews {
-            if view.isKindOfClass(UITextField) {
-                let textField: UITextField = view as! UITextField
-                if (textField.text != nil) {
-                    valid = true
-                } else {
-                    valid = false
-                    println("tf: \(textField.description)")
-                    return(valid, textField)
-                }
-            }
-        }
-        return (valid, courseNameTextField)
+        let textFieldEmptyAlert = UIAlertController(title: titleIn, message: messageIn, preferredStyle: .Alert)
+        textFieldEmptyAlert.addAction(UIAlertAction(title: buttonTitleIn, style: .Default, handler: {alertAction in handler}))
+        presentViewController(textFieldEmptyAlert, animated: true, completion: nil)
     }
-
+    
+    
+    
     
     func dismissVC(){
         navigationController?.popViewControllerAnimated(true)

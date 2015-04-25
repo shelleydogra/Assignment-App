@@ -22,15 +22,26 @@ class Assignment: NSManagedObject {
     @NSManaged var rType: NSSet
 
     
-    
-    
-    
+
     
     override func awakeFromInsert() {
         super.awakeFromInsert()
         
         self.pointReceived = 666
     }
+    
+    
+    var daysLeft: Int {
+        
+        var calendar: NSCalendar = NSCalendar.currentCalendar()
+        
+        let dayComponents = calendar.components(NSCalendarUnit.CalendarUnitDay, fromDate: NSDate(), toDate: dueDate, options: nil)
+        
+        let days = dayComponents.day
+        
+        return days
+    }
+    
     
 
 }

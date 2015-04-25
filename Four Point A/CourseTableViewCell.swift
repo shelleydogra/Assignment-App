@@ -15,6 +15,7 @@ class CourseTableViewCell: UITableViewCell {
     @IBOutlet weak var courseCellLabel2: UILabel!
     @IBOutlet weak var gradePercentageLabel: UILabel!
     
+    @IBOutlet weak var countOfAssignmentsDueLabel: UILabel!
     //@IBOutlet weak var courseImage: UIImageView!
     
     let rowHeight: CGFloat = 100

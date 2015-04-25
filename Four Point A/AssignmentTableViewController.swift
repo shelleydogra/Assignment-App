@@ -61,9 +61,11 @@ class AssignmentTableViewController: UITableViewController, NSFetchedResultsCont
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
+    
+    
+    
     // MARK: - Table view data source
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -86,17 +88,20 @@ class AssignmentTableViewController: UITableViewController, NSFetchedResultsCont
     }
     
     func setupUI() {
-        //background image .alpha() is an extension of UIImage in FILE -> Image.swift
-        var bgImage: UIImage = UIImage(named: "bgStarBlue.png")!.alpha(0.6)
+      
         
-        self.view.backgroundColor = UIColor(patternImage: bgImage)
+        //setupBackGroundImage()
         
         
     }
     
+    func setupBackGroundImage() {
+        // background image .alpha() is an extension of UIImage in FILE -> Image.swift
+        var bgImage: UIImage = UIImage(named: "bgStarBlue.png")!.alpha(0.6)
+        self.view.backgroundColor = UIColor(patternImage: bgImage)
+    }
     
-    
-    
+
     // MARK: - Navigation
     // SEGUE PREPARATION FOR THE DATA GETTING PASSED AS WE SEGUE.
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -107,6 +112,7 @@ class AssignmentTableViewController: UITableViewController, NSFetchedResultsCont
             
             // PASSING CURRENT course TO ADD ASSIGNMENT VIEW
             addAssignmentVC.course = course
+            //addAssignmentVC.date = NSDate().dateByAddingTimeInterval(666.days)
         }
     }
     

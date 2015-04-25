@@ -11,6 +11,13 @@ import Foundation
 
 class Debug: NSObject {
     
+    class var debugON: Debug {
+        
+        struct Single {
+            static let instance: Debug = Debug()
+        }
+        return Single.instance
+    }
     
     func debugLog(print: AnyObject, sender: AnyObject) {
         let classString: String = NSStringFromClass(sender.classForCoder)

@@ -71,38 +71,14 @@ class AssignmentViewController: UIViewController, UITableViewDataSource, UITable
         setupUI()
         delegationHandler()
         
-        
-        
-        
-        
+
         // MARK:- DATE TESTING
         // MARK:-
         ///////////////////////////////// TESTing Date/////////////////////////////////
-        
-        
-        let formatter = NSDateFormatter()
-        formatter.dateStyle = NSDateFormatterStyle.MediumStyle
+
         
         let date = NSDate().dateByAddingTimeInterval(21.days)
-        
-        
-        
-        
-        var currentDate = NSDate().formattedMedium
-        
-        //let dateFromString = currentDate.asDate
-        
-        
-        println("NSDate: \(date)")
-        println("currentDate: \(currentDate)")
-        // println("dateFromString: \(dateFromString)")
-        
-        
-        // println("EXT Long Date: \(NSDate().formattedLong)")
-        
-        println("EXT Date: \(NSDate().formattedMedium)")
-        
-        println("EXT Short Date: \(NSDate().formattedShort)")
+
 
         
     
@@ -113,7 +89,6 @@ class AssignmentViewController: UIViewController, UITableViewDataSource, UITable
     
     
     // MARK:-  TABLEVIEW Methods
-    
     
     
     // DIVIDES UP THE TABLE INTO GROUPS
@@ -150,8 +125,14 @@ class AssignmentViewController: UIViewController, UITableViewDataSource, UITable
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
         let assignment = fetchedResultsController.objectAtIndexPath(indexPath) as! Assignment
+        
+        
         assignmentNameLabel.text = assignment.rCourse.name
-        daysLeftLabel.text = assignment.dueDate.formattedLong
+        
+        
+        
+        daysLeftLabel.text = String(assignment.daysLeft)
+        
         
     }
 
@@ -161,6 +142,9 @@ class AssignmentViewController: UIViewController, UITableViewDataSource, UITable
     }
     
 
+    
+
+    
 
     // INITIAL VIEW METHODS
     func setupUI() {
@@ -168,8 +152,15 @@ class AssignmentViewController: UIViewController, UITableViewDataSource, UITable
         assignmentNameLabel.attributedText = NSAttributedString(string: "Assignment")
         assignmentNameLabel.textAlignment = NSTextAlignment.Center
         
-        
-
+        daysLeftLabel.text = "Days Left"
+        setupBackGroundImage()
+ 
+    }
+    
+    func setupBackGroundImage() {
+        // background image .alpha() is an extension of UIImage in FILE -> Image.swift
+        var bgImage: UIImage = UIImage(named: "background.png")!.alpha(1)
+        self.view.backgroundColor = UIColor(patternImage: bgImage)
     }
     
     func delegationHandler() {
