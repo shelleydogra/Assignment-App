@@ -99,6 +99,7 @@ class AddCourseViewController: UIViewController, UITextFieldDelegate {
     func setupUI() {
         courseNameTextField.placeholder  = "Course Name"
         creditHoursTextField.placeholder = "Credit Hrs"
+        creditHoursTextField.keyboardType = UIKeyboardType.NumberPad
     }
     
 

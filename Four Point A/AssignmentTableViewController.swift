@@ -112,7 +112,7 @@ class AssignmentTableViewController: UITableViewController, NSFetchedResultsCont
             
             // PASSING CURRENT course TO ADD ASSIGNMENT VIEW
             addAssignmentVC.course = course
-            //addAssignmentVC.date = NSDate().dateByAddingTimeInterval(666.days)
+            addAssignmentVC.date = NSDate().dateByAddingTimeInterval(7.days)
         }
     }
     

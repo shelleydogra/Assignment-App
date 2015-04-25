@@ -108,7 +108,7 @@ class AssignmentViewController: UIViewController, UITableViewDataSource, UITable
         
         // SETUP PROTOTYPE CELL
         let cell = tableView.dequeueReusableCellWithIdentifier(textCellIdentifier, forIndexPath: indexPath) as! UITableViewCell
-        
+       
         // GRAB THE CURRENT OBJECT FETCHED
         let assignment = fetchedResultsController.objectAtIndexPath(indexPath) as! Assignment
         
@@ -162,6 +162,7 @@ class AssignmentViewController: UIViewController, UITableViewDataSource, UITable
         var bgImage: UIImage = UIImage(named: "background.png")!.alpha(1)
         self.view.backgroundColor = UIColor(patternImage: bgImage)
     }
+    
     
     func delegationHandler() {
         

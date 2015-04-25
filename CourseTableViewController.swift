@@ -48,6 +48,13 @@ class CourseTableViewController: UITableViewController, NSFetchedResultsControll
     func setupUI() {
         tableView.delegate = self
         view.backgroundColor = color.lightBackground
+        setupBackGroundImage()
+    }
+    
+    func setupBackGroundImage() {
+        // background image .alpha() is an extension of UIImage in FILE -> Image.swift
+        var bgImage: UIImage = UIImage(named: "background.png")!.alpha(1)
+        self.view.backgroundColor = UIColor(patternImage: bgImage)
     }
 
     override func didReceiveMemoryWarning() {

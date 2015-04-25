@@ -25,13 +25,14 @@ class AddAssignmentViewController: UIViewController, UIPickerViewDataSource, UIP
     var localPointsPossible: Int? = 0
     var localPointsReceived: Int? = 0
     
+    @IBOutlet weak var dueDateLabel: UILabel!
+    @IBOutlet weak var pointsLabel: UILabel!
     // OUTLETS
     @IBOutlet weak var dateSelector: UIDatePicker!
     @IBOutlet weak var pointsPickerView: UIPickerView!
     @IBOutlet weak var assignmentNameTextField: UITextField!
     @IBOutlet weak var dueDateButtonOutlet: UIButton!
-    @IBOutlet weak var setDateButton: UIButton!
-
+   
     
     override func viewWillAppear(animated: Bool) {
         // Will put the focus on the first Text field and bring up the keyboard
@@ -46,10 +47,15 @@ class AddAssignmentViewController: UIViewController, UIPickerViewDataSource, UIP
 
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        
         return true
     }
     
+    
+    
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        dateSelector.hidden = true
+        pointsPickerView.hidden = true
         self.view.endEditing(true)
     }
     
@@ -65,30 +71,36 @@ class AddAssignmentViewController: UIViewController, UIPickerViewDataSource, UIP
 
         //temp
         pointsPickerView.hidden = true
+        dateSelector.hidden = true
         
         //set up date picker to only show dates
         dateSelector.datePickerMode = UIDatePickerMode.Date
         
         //load date into datepicker if it comes in EDIT mode from previous view controller
+        dueDateButtonOutlet.setTitle("Due Date 📅", forState: UIControlState.Normal)
         if date != nil {
             dateSelector.date = date
-            dueDateButtonOutlet.setTitle(date?.formattedShort, forState: UIControlState.Normal)
+            
         } else {
             dateSelector.date = NSDate()
-            dueDateButtonOutlet.setTitle("📅   Due Date", forState: UIControlState.Normal)
+            
         }
         
-        dateSelector.hidden = true
-        setDateButton.hidden = true
-        setDateButton.setTitle("SET", forState: UIControlState.Normal)
+        
+       
+       
     }
     
     func updateUI() {
-        if date == nil {
-            dueDateButtonOutlet.setTitle("📅   Due Date", forState: UIControlState.Normal)
-        } else {
-            dueDateButtonOutlet.setTitle(date?.formattedShort, forState: UIControlState.Normal)
-        }
+//        if date == nil {
+//            dueDateButtonOutlet.setTitle("📅   Due Date", forState: UIControlState.Normal)
+//        } else {
+//            dueDateButtonOutlet.setTitle(date?.formattedShort, forState: UIControlState.Normal)
+//        }
+        
+        dueDateLabel.text = dateSelector.date.formattedShort
+        pointsLabel.text = "\(localPointsReceived!) / \(localPointsPossible!)"
+        
     }
     
     func delegationHandler() {
@@ -99,19 +111,24 @@ class AddAssignmentViewController: UIViewController, UIPickerViewDataSource, UIP
     
     @IBAction func dueDateButtonAction(sender: UIButton) {
         dateSelector.hidden = !dateSelector.hidden
-        setDateButton.hidden = false
-        dueDateButtonOutlet.hidden = true
+        pointsPickerView.hidden = true
+        if sender.titleLabel?.text != "SET" {
+            sender.setTitle("SET", forState: .Normal)
+        } else {
+            sender.setTitle("📅   Due Date", forState: .Normal)
+        }
     }
     
-    @IBAction func setDateButtonAction(sender: UIButton) {
-        setDateButton.hidden = !setDateButton.hidden
-        dateSelector.hidden = true
-        dueDateButtonOutlet.hidden = false
-    }
     
-    @IBAction func pointsButton(sender: AnyObject) {
+    @IBAction func pointsButton(sender: UIButton) {
+        pointsPickerView.hidden = !pointsPickerView.hidden
         dateSelector.hidden = true
-        pointsPickerView.hidden = false
+        
+        if sender.titleLabel?.text != "SET" {
+            sender.setTitle("SET", forState: .Normal)
+        } else {
+            sender.setTitle("Points", forState: .Normal)
+        }
     }
     
     
@@ -147,41 +164,7 @@ class AddAssignmentViewController: UIViewController, UIPickerViewDataSource, UIP
         }
         self.studentData.rollback()
     }
-    
-        
-//        if (assignmentNameTextField.text != nil) {
-//            assignment.name = assignmentNameTextField.text
-//            assignment.rCourse = self.course!
-//            assignment.isSubmitted = false
-//            
-//            if (date != nil) {
-//               assignment.dueDate = date!
-//            }
-//            
-//            
-//            assignment.pointsPossible = 10
-//            debugLog(assignment.pointReceived)
-//            
-//        }
-//        
-//        var error: NSError? = nil
-//        studentData.save(&error)
-//        
-//        if(error != nil) {
-//            println("error occoured while saving studentData: \(error)")
-//        }
-//        
-//        AssignmentTVC?.course = assignment.rCourse
-//        
-//        dismissVC()
 
-//    }
-
-    
-    
-    
-    
-    
     
     @IBAction func cancelButton(sender: AnyObject) {
         self.studentData.rollback()
@@ -226,6 +209,7 @@ class AddAssignmentViewController: UIViewController, UIPickerViewDataSource, UIP
     }
     
 
+
     
     
     
@@ -252,39 +236,13 @@ class AddAssignmentViewController: UIViewController, UIPickerViewDataSource, UIP
         return pickerData[component][row]
     }
 
-//    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-//        switch (component) {
-//        case 0:
-//            switch (row) {
-//            case 0:
-//                //println("0,0")
-//                println("oai: \(pointsPickerView.selectedRowInComponent(3).toIntMax()) ")
-//            case 1:
-//                println("0,1")
-//            default:
-//                println("column 0 default")
-//            
-//            }
-//        case 1:
-//            switch (row) {
-//            case 0:
-//                println("1,0")
-//            case 1:
-//                println("1,1")
-//            default:
-//                println("column 0 default")
-//        }
-//        default:
-//            println("overall")
-//        }
-//    }
-    
+
+    // pointsPickerView Action Method
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         localPointsReceived = intValueFromComponents(0, andComponent: 1, andComponent: 2).pickerInteger
         localPointsPossible = intValueFromComponents(4, andComponent: 5, andComponent: 6).pickerInteger
-        
-        println("\(localPointsReceived!) out of \(localPointsPossible!)")
+        updateUI()
     }
     
     // 3 digit string concatenated from string -> Int and String (Touple)

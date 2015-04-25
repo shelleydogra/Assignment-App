@@ -14,7 +14,6 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" id="qjY-lg-Sm3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CourseCell" rowHeight="100" id="255-I7-NwE" customClass="CourseTableViewCell" customModule="Four_Point_A" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -276,30 +275,38 @@
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="105" y="72" width="165" height="30"/>
-                                </variation>
                             </textField>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="lEb-YD-Lkf">
+                                <rect key="frame" x="-160" y="-81" width="320" height="162"/>
+                                <date key="date" timeIntervalSinceReferenceDate="451350870.762519">
+                                    <!--2015-04-21 23:14:30 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="dateSelectorAction:" destination="zJd-fb-dVY" eventType="valueChanged" id="hKj-JT-V4X"/>
+                                </connections>
+                            </datePicker>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wqX-38-xpA">
+                                <rect key="frame" x="0.0" y="-162" width="320" height="162"/>
+                            </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LQQ-OY-fdc">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="sBs-AD-Q7u"/>
+                                </constraints>
                                 <size key="titleShadowOffset" width="1" height="1"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="105" y="135" width="165" height="30"/>
+                                <state key="normal" title="btnDueDate"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="sBs-AD-Q7u"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="sBs-AD-Q7u"/>
+                                    </mask>
                                 </variation>
                                 <connections>
                                     <action selector="dueDateButtonAction:" destination="zJd-fb-dVY" eventType="touchUpInside" id="hfK-yV-3nI"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9xC-Y7-Oou">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="105" y="135" width="165" height="30"/>
-                                </variation>
-                                <connections>
-                                    <action selector="setDateButtonAction:" destination="zJd-fb-dVY" eventType="touchUpInside" id="byo-k1-igx"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vve-xJ-TEw">
@@ -307,51 +314,110 @@
                                 <state key="normal" title="Points">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="164" y="173" width="44" height="30"/>
-                                </variation>
                                 <connections>
                                     <action selector="pointsButton:" destination="zJd-fb-dVY" eventType="touchUpInside" id="Ygv-HY-1LQ"/>
                                 </connections>
                             </button>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="lEb-YD-Lkf">
-                                <rect key="frame" x="-160" y="-81" width="320" height="162"/>
-                                <date key="date" timeIntervalSinceReferenceDate="451350870.762519">
-                                    <!--2015-04-21 23:14:30 +0000-->
-                                </date>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="220" width="375" height="162"/>
-                                </variation>
-                                <connections>
-                                    <action selector="dateSelectorAction:" destination="zJd-fb-dVY" eventType="valueChanged" id="hKj-JT-V4X"/>
-                                </connections>
-                            </datePicker>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wqX-38-xpA">
-                                <rect key="frame" x="0.0" y="-162" width="320" height="162"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="220" width="375" height="162"/>
-                                </variation>
-                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yd1-QJ-8ni">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ixt-W6-Mtz">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wqX-38-xpA" firstAttribute="top" secondItem="lEb-YD-Lkf" secondAttribute="top" id="1Lw-25-Idv"/>
+                            <constraint firstItem="lEb-YD-Lkf" firstAttribute="trailing" secondItem="wqX-38-xpA" secondAttribute="trailing" id="23a-2F-jlA"/>
+                            <constraint firstItem="lEb-YD-Lkf" firstAttribute="leading" secondItem="wqX-38-xpA" secondAttribute="leading" id="4ff-Zk-HVh"/>
+                            <constraint firstItem="EMQ-Du-G7H" firstAttribute="centerX" secondItem="lEb-YD-Lkf" secondAttribute="centerX" id="9Hg-qn-bJ3"/>
+                            <constraint firstItem="LQQ-OY-fdc" firstAttribute="leading" secondItem="i0I-0g-Y02" secondAttribute="leadingMargin" constant="22" id="B50-2Y-apx"/>
+                            <constraint firstItem="vve-xJ-TEw" firstAttribute="top" secondItem="LQQ-OY-fdc" secondAttribute="bottom" constant="8" symbolic="YES" id="BTg-3s-5AY"/>
+                            <constraint firstItem="Yd1-QJ-8ni" firstAttribute="leading" secondItem="ixt-W6-Mtz" secondAttribute="leading" id="I0f-Uj-umc"/>
+                            <constraint firstItem="Yd1-QJ-8ni" firstAttribute="trailing" secondItem="ixt-W6-Mtz" secondAttribute="trailing" id="KE1-N1-xmj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Yd1-QJ-8ni" secondAttribute="trailing" constant="22" id="PRh-iZ-L5n"/>
+                            <constraint firstItem="wqX-38-xpA" firstAttribute="top" secondItem="vve-xJ-TEw" secondAttribute="bottom" constant="25" id="Qp5-QH-Dxb"/>
+                            <constraint firstItem="EMQ-Du-G7H" firstAttribute="leading" secondItem="i0I-0g-Y02" secondAttribute="leadingMargin" constant="89" id="Uhx-32-lDw"/>
+                            <constraint firstItem="EMQ-Du-G7H" firstAttribute="top" secondItem="Rad-Jw-twV" secondAttribute="bottom" constant="8" symbolic="YES" id="cS8-WR-Kjb"/>
+                            <constraint firstItem="LQQ-OY-fdc" firstAttribute="leading" secondItem="vve-xJ-TEw" secondAttribute="leading" id="ekk-H7-3iN"/>
+                            <constraint firstItem="lEb-YD-Lkf" firstAttribute="leading" secondItem="i0I-0g-Y02" secondAttribute="leading" id="etX-pX-bEN"/>
+                            <constraint firstItem="ixt-W6-Mtz" firstAttribute="leading" secondItem="vve-xJ-TEw" secondAttribute="trailing" constant="8" symbolic="YES" id="jpo-UE-8sG"/>
+                            <constraint firstItem="vve-xJ-TEw" firstAttribute="baseline" secondItem="ixt-W6-Mtz" secondAttribute="baseline" id="nAV-qp-RHy"/>
+                            <constraint firstItem="Yd1-QJ-8ni" firstAttribute="baseline" secondItem="LQQ-OY-fdc" secondAttribute="baseline" id="nQA-ua-Ihf"/>
+                            <constraint firstItem="LQQ-OY-fdc" firstAttribute="top" secondItem="EMQ-Du-G7H" secondAttribute="bottom" constant="25" id="o63-TK-kNJ"/>
+                            <constraint firstItem="Yd1-QJ-8ni" firstAttribute="leading" secondItem="LQQ-OY-fdc" secondAttribute="trailing" constant="8" symbolic="YES" id="uUq-kt-jKj"/>
+                            <constraint firstAttribute="trailing" secondItem="wqX-38-xpA" secondAttribute="trailing" id="wzr-GW-pRQ"/>
+                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="EMQ-Du-G7H"/>
-                                <exclude reference="LQQ-OY-fdc"/>
-                                <exclude reference="9xC-Y7-Oou"/>
-                                <exclude reference="vve-xJ-TEw"/>
                                 <exclude reference="lEb-YD-Lkf"/>
                                 <exclude reference="wqX-38-xpA"/>
+                                <exclude reference="LQQ-OY-fdc"/>
+                                <exclude reference="vve-xJ-TEw"/>
+                                <exclude reference="Yd1-QJ-8ni"/>
+                                <exclude reference="ixt-W6-Mtz"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="9Hg-qn-bJ3"/>
+                                <exclude reference="Uhx-32-lDw"/>
+                                <exclude reference="cS8-WR-Kjb"/>
+                                <exclude reference="B50-2Y-apx"/>
+                                <exclude reference="ekk-H7-3iN"/>
+                                <exclude reference="o63-TK-kNJ"/>
+                                <exclude reference="BTg-3s-5AY"/>
+                                <exclude reference="nAV-qp-RHy"/>
+                                <exclude reference="23a-2F-jlA"/>
+                                <exclude reference="4ff-Zk-HVh"/>
+                                <exclude reference="etX-pX-bEN"/>
+                                <exclude reference="1Lw-25-Idv"/>
+                                <exclude reference="Qp5-QH-Dxb"/>
+                                <exclude reference="wzr-GW-pRQ"/>
+                                <exclude reference="I0f-Uj-umc"/>
+                                <exclude reference="KE1-N1-xmj"/>
+                                <exclude reference="PRh-iZ-L5n"/>
+                                <exclude reference="nQA-ua-Ihf"/>
+                                <exclude reference="uUq-kt-jKj"/>
+                                <exclude reference="jpo-UE-8sG"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="EMQ-Du-G7H"/>
-                                <include reference="LQQ-OY-fdc"/>
-                                <include reference="9xC-Y7-Oou"/>
-                                <include reference="vve-xJ-TEw"/>
                                 <include reference="lEb-YD-Lkf"/>
                                 <include reference="wqX-38-xpA"/>
+                                <include reference="LQQ-OY-fdc"/>
+                                <include reference="vve-xJ-TEw"/>
+                                <include reference="Yd1-QJ-8ni"/>
+                                <include reference="ixt-W6-Mtz"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="9Hg-qn-bJ3"/>
+                                <include reference="Uhx-32-lDw"/>
+                                <include reference="cS8-WR-Kjb"/>
+                                <include reference="B50-2Y-apx"/>
+                                <include reference="ekk-H7-3iN"/>
+                                <include reference="o63-TK-kNJ"/>
+                                <include reference="BTg-3s-5AY"/>
+                                <include reference="nAV-qp-RHy"/>
+                                <include reference="23a-2F-jlA"/>
+                                <include reference="4ff-Zk-HVh"/>
+                                <include reference="etX-pX-bEN"/>
+                                <include reference="1Lw-25-Idv"/>
+                                <include reference="Qp5-QH-Dxb"/>
+                                <include reference="wzr-GW-pRQ"/>
+                                <include reference="I0f-Uj-umc"/>
+                                <include reference="KE1-N1-xmj"/>
+                                <include reference="PRh-iZ-L5n"/>
+                                <include reference="nQA-ua-Ihf"/>
+                                <include reference="uUq-kt-jKj"/>
+                                <include reference="jpo-UE-8sG"/>
                             </mask>
                         </variation>
                     </view>
@@ -372,8 +438,9 @@
                         <outlet property="assignmentNameTextField" destination="EMQ-Du-G7H" id="cSG-Yj-N9V"/>
                         <outlet property="dateSelector" destination="lEb-YD-Lkf" id="qgZ-Hn-h0q"/>
                         <outlet property="dueDateButtonOutlet" destination="LQQ-OY-fdc" id="xzf-e8-ZuC"/>
+                        <outlet property="dueDateLabel" destination="Yd1-QJ-8ni" id="3m0-Ac-rah"/>
+                        <outlet property="pointsLabel" destination="ixt-W6-Mtz" id="9lS-sd-naI"/>
                         <outlet property="pointsPickerView" destination="wqX-38-xpA" id="hTS-Z5-s8A"/>
-                        <outlet property="setDateButton" destination="9xC-Y7-Oou" id="tWh-M6-ya1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oPS-RH-OdC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -403,7 +470,7 @@
                                     <constraint firstAttribute="width" constant="100" id="W9F-ld-G5c"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="W9F-ld-G5c"/>
