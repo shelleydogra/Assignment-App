@@ -22,7 +22,6 @@ class CourseTableViewController: UITableViewController, NSFetchedResultsControll
         let frc = fetchedStudentEntity.fetchedResultsController
         return frc
     }
-    
 
     func updateUI() {
         fetchData().performFetch(nil)
@@ -47,8 +46,11 @@ class CourseTableViewController: UITableViewController, NSFetchedResultsControll
     
     func setupUI() {
         tableView.delegate = self
-        view.backgroundColor = color.lightBackground
         setupBackGroundImage()
+
+        //self.tableView.backgroundColor = UIColor.blueColor()
+        self.tableView.opaque = true
+        //self.tableView.backgroundView = nil;
     }
     
     func setupBackGroundImage() {
@@ -76,18 +78,32 @@ class CourseTableViewController: UITableViewController, NSFetchedResultsControll
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("CourseCell", forIndexPath: indexPath) as! CourseTableViewCell
+        cell.backgroundColor  = UIColor.clearColor()
+        
         
         let course = fetchData().objectAtIndexPath(indexPath) as! Course
     
         cell.courseNameLabel?.text = course.name
         cell.courseCellLabel2?.text =  course.creditHours.description + " Hrs."
         cell.countOfAssignmentsDueLabel?.text = course.rAssignment.count.description + " Due"
+        
+        
+        
+        
 
         
         return cell
     }
 
 
+    
+    
+    
+    
+    
+    
+    
+    
     
     //ADJUST CELL HEIGHT
     
