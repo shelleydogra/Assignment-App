@@ -550,9 +550,7 @@
         <scene sceneID="AgF-ae-8Xk">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Nfz-q2-7R2" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Courses" id="nmr-Vz-gNu">
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-15"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Courses" image="HW_HL.png" badgeValue="1" id="nmr-Vz-gNu"/>
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xe8-1t-9ls">
@@ -1062,4 +1060,7 @@
             <point key="canvasLocation" x="-2357.25" y="936.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="HW_HL.png" width="48" height="48"/>
+    </resources>
 </document>
