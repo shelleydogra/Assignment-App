@@ -52,7 +52,7 @@ class AssignmentTableViewController: UITableViewController, NSFetchedResultsCont
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        handleDelgates()
+        handleDelegates()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -60,7 +60,7 @@ class AssignmentTableViewController: UITableViewController, NSFetchedResultsCont
         updateUI()
     }
     
-    func handleDelgates() {
+    func handleDelegates() {
         fetchedResultsController.delegate = self
     }
 
@@ -68,8 +68,6 @@ class AssignmentTableViewController: UITableViewController, NSFetchedResultsCont
         super.didReceiveMemoryWarning()
     }
 
-    
-    
     
     // MARK: - Table view data source
 
@@ -97,14 +95,9 @@ class AssignmentTableViewController: UITableViewController, NSFetchedResultsCont
     }
     
     
-    
-    
-    
     func setupUI() {
       
-        
         //setupBackGroundImage()
-        
         
     }
     
@@ -138,9 +131,7 @@ class AssignmentTableViewController: UITableViewController, NSFetchedResultsCont
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.Delete) {
-            let context = self.fetchedResultsController.managedObjectContext
             
-            //context.deleteObject(self.fetchedResultsController.objectAtIndexPath(indexPath) as! NSManagedObject)
             studentData.deleteObject(self.fetchedResultsController.objectAtIndexPath(indexPath) as! NSManagedObject)
             var error: NSError? = nil
             

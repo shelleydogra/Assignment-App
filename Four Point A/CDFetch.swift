@@ -61,5 +61,10 @@ class CDFetch: NSObject, NSFetchedResultsControllerDelegate {
         
         return frc
         }()
+ 
+    func getContext() -> NSManagedObjectContext {
+        return studentData
+    }
+    
     
 }

@@ -11,11 +11,12 @@
     </entity>
     <entity name="Course" representedClassName="Course" syncable="YES">
         <attribute name="creditHours" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isPassFail" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" defaultValueString="Course Nmae" syncable="YES"/>
         <attribute name="pointsPossible" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="pointsReceived" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="weight" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <relationship name="rAssignment" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Assignment" inverseName="rCourse" inverseEntity="Assignment" syncable="YES"/>
+        <relationship name="rAssignment" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Assignment" inverseName="rCourse" inverseEntity="Assignment" syncable="YES"/>
         <relationship name="rTerm" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Term" inverseName="rCourse" inverseEntity="Term" syncable="YES"/>
     </entity>
     <entity name="Student" representedClassName="Student" syncable="YES">
@@ -39,7 +40,7 @@
     <fetchRequest name="AllAssignments" entity="Assignment" predicateString="name CONTAINS &quot;1&quot;"/>
     <elements>
         <element name="Assignment" positionX="-236" positionY="-333" width="128" height="148"/>
-        <element name="Course" positionX="-252" positionY="-36" width="128" height="150"/>
+        <element name="Course" positionX="-252" positionY="-36" width="128" height="165"/>
         <element name="Student" positionX="-450" positionY="-324" width="128" height="90"/>
         <element name="Term" positionX="-468" positionY="-165" width="128" height="148"/>
         <element name="Type" positionX="-47" positionY="-333" width="128" height="73"/>

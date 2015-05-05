@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class AddCourseViewController: UIViewController, UITextFieldDelegate {
+class AddCourseViewController: UIViewController {
 
     //OUTLETS
     @IBOutlet weak var courseNameTextField: UITextField!

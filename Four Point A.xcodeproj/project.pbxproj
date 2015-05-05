@@ -10,7 +10,6 @@
 		5817DCA81AD26D95000C96CA /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5817DCA71AD26D95000C96CA /* Type.swift */; };
 		5817DCAA1AD26DAC000C96CA /* Term.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5817DCA91AD26DAC000C96CA /* Term.swift */; };
 		5817DCAC1AD26DCA000C96CA /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5817DCAB1AD26DCA000C96CA /* Student.swift */; };
-		5817DCAE1AD26DE1000C96CA /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5817DCAD1AD26DE1000C96CA /* Course.swift */; };
 		5817DCB01AD26E24000C96CA /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5817DCAF1AD26E24000C96CA /* Assignment.swift */; };
 		5817DCB21AD27589000C96CA /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5817DCB11AD27589000C96CA /* Color.swift */; };
 		582957D51AE6E2A000D20A00 /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582957D41AE6E2A000D20A00 /* Debug.swift */; };
@@ -28,6 +27,7 @@
 		586B24201AA1E6B200861B8D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 586B241E1AA1E6B200861B8D /* LaunchScreen.xib */; };
 		586B242C1AA1E6B200861B8D /* Four_Point_ATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586B242B1AA1E6B200861B8D /* Four_Point_ATests.swift */; };
 		587BCC621AD45DFF0006E9BE /* AddCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587BCC611AD45DFF0006E9BE /* AddCourseViewController.swift */; };
+		5889FE201AF97F080034E615 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5889FE1F1AF97F080034E615 /* Course.swift */; };
 		589B69991AC749D100DB06D2 /* CDStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589B69981AC749D100DB06D2 /* CDStore.swift */; };
 		58C424B61AE985050068D5EA /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C424B51AE985050068D5EA /* Alert.swift */; };
 		58C424B81AEB3B810068D5EA /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 58C424B71AEB3B810068D5EA /* background.png */; };
@@ -58,7 +58,6 @@
 		5817DCA71AD26D95000C96CA /* Type.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Type.swift; path = ../Type.swift; sourceTree = "<group>"; };
 		5817DCA91AD26DAC000C96CA /* Term.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Term.swift; sourceTree = "<group>"; };
 		5817DCAB1AD26DCA000C96CA /* Student.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
-		5817DCAD1AD26DE1000C96CA /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		5817DCAF1AD26E24000C96CA /* Assignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assignment.swift; sourceTree = "<group>"; };
 		5817DCB11AD27589000C96CA /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		582957D41AE6E2A000D20A00 /* Debug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Debug.swift; sourceTree = "<group>"; };
@@ -80,6 +79,7 @@
 		586B242A1AA1E6B200861B8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		586B242B1AA1E6B200861B8D /* Four_Point_ATests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Four_Point_ATests.swift; sourceTree = "<group>"; };
 		587BCC611AD45DFF0006E9BE /* AddCourseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCourseViewController.swift; sourceTree = "<group>"; };
+		5889FE1F1AF97F080034E615 /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		589B69981AC749D100DB06D2 /* CDStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDStore.swift; sourceTree = "<group>"; };
 		58AF05481AD9A3850008A06D /* Four Point A-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Four Point A-Bridging-Header.h"; sourceTree = "<group>"; };
 		58C424B51AE985050068D5EA /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
@@ -182,11 +182,11 @@
 		58D3F94D1AD32122007AD24B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5889FE1F1AF97F080034E615 /* Course.swift */,
 				586B24141AA1E6B200861B8D /* Four_Point_A.xcdatamodeld */,
 				5817DCAF1AD26E24000C96CA /* Assignment.swift */,
 				58D223051AF887FD00CAE1DE /* AssignmentExtension.swift */,
 				5817DCA71AD26D95000C96CA /* Type.swift */,
-				5817DCAD1AD26DE1000C96CA /* Course.swift */,
 				5817DCAB1AD26DCA000C96CA /* Student.swift */,
 				5817DCA91AD26DAC000C96CA /* Term.swift */,
 			);
@@ -344,7 +344,6 @@
 				58E56E8B1ADAEB9D00834E63 /* AssignmentViewController.swift in Sources */,
 				58386BA61AE31BE400E73ECE /* String.swift in Sources */,
 				58DB88C51AE09CF30015C50D /* DatePickerViewController.swift in Sources */,
-				5817DCAE1AD26DE1000C96CA /* Course.swift in Sources */,
 				5817DCB21AD27589000C96CA /* Color.swift in Sources */,
 				58C424B61AE985050068D5EA /* Alert.swift in Sources */,
 				585AACC41AC0CD340059F413 /* CDFetch.swift in Sources */,
@@ -363,6 +362,7 @@
 				582957D91AE71D1D00D20A00 /* Int.swift in Sources */,
 				5817DCA81AD26D95000C96CA /* Type.swift in Sources */,
 				5817DCB01AD26E24000C96CA /* Assignment.swift in Sources */,
+				5889FE201AF97F080034E615 /* Course.swift in Sources */,
 				582957D51AE6E2A000D20A00 /* Debug.swift in Sources */,
 				5817DCAC1AD26DCA000C96CA /* Student.swift in Sources */,
 			);
