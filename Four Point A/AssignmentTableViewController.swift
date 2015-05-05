@@ -52,11 +52,16 @@ class AssignmentTableViewController: UITableViewController, NSFetchedResultsCont
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        handleDelgates()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         updateUI()
+    }
+    
+    func handleDelgates() {
+        fetchedResultsController.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -78,14 +83,22 @@ class AssignmentTableViewController: UITableViewController, NSFetchedResultsCont
         let cell = tableView.dequeueReusableCellWithIdentifier("AssignmentCell", forIndexPath: indexPath) as! UITableViewCell
         
         
-        let assignment = fetchedResultsController.objectAtIndexPath(indexPath) as! Assignment
-
-        cell.textLabel?.text = assignment.name
-        
-        cell.detailTextLabel?.text = assignment.dueDate.formattedShort
+        configureCell(cell, atIndexPath: indexPath)
         
         return cell
     }
+    
+    func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
+        let assignment = fetchedResultsController.objectAtIndexPath(indexPath) as! Assignment
+        
+        cell.textLabel?.text = assignment.name
+        
+        cell.detailTextLabel?.text = assignment.dueDate.formattedShort
+    }
+    
+    
+    
+    
     
     func setupUI() {
       
@@ -116,5 +129,71 @@ class AssignmentTableViewController: UITableViewController, NSFetchedResultsCont
         }
     }
     
+    
+    // MARK:- Editing tables
+    
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.Delete) {
+            let context = self.fetchedResultsController.managedObjectContext
+            
+            //context.deleteObject(self.fetchedResultsController.objectAtIndexPath(indexPath) as! NSManagedObject)
+            studentData.deleteObject(self.fetchedResultsController.objectAtIndexPath(indexPath) as! NSManagedObject)
+            var error: NSError? = nil
+            
+            studentData.save(&error)
+            
+            if(error != nil) {
+                println("Error occoured while saving studentData: \(error)")
+            }
 
+        }
+    }
+
+    
+    func controllerWillChangeContent(controller: NSFetchedResultsController) {
+        tableView.beginUpdates()
+    }
+    
+    
+    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+        switch type {
+        case .Insert:
+            tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: UITableViewRowAnimation.Fade)
+        case .Delete:
+            tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: UITableViewRowAnimation.Fade)
+        case .Update:
+            let cell = self.tableView.cellForRowAtIndexPath(indexPath!)
+            self.configureCell(cell!, atIndexPath: indexPath!)
+            self.tableView.reloadRowsAtIndexPaths([indexPath!], withRowAnimation: UITableViewRowAnimation.Fade)
+        case .Move:
+            self.tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: UITableViewRowAnimation.Fade)
+            self.tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: UITableViewRowAnimation.Fade)
+        default:
+            break
+            
+        }
+    }
+
+    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+        tableView.reloadData()
+        tableView.endUpdates()
+    }
+    
+    func controller(controller: NSFetchedResultsController, didChangeSection sectionInfo: NSFetchedResultsSectionInfo, atIndex sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
+        let indexSet = NSIndexSet(index: sectionIndex)
+        
+        switch type {
+        case .Insert:
+            tableView.insertSections(indexSet, withRowAnimation: .Automatic)
+        case .Delete:
+            tableView.deleteSections(indexSet, withRowAnimation: .Automatic)
+        default:
+            break
+        }
+    }
+ 
 }

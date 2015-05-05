@@ -32,6 +32,7 @@
 		58C424B61AE985050068D5EA /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C424B51AE985050068D5EA /* Alert.swift */; };
 		58C424B81AEB3B810068D5EA /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 58C424B71AEB3B810068D5EA /* background.png */; };
 		58C65D131AE0629F00C9FE61 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C65D121AE0629F00C9FE61 /* Date.swift */; };
+		58D223061AF887FD00CAE1DE /* AssignmentExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D223051AF887FD00CAE1DE /* AssignmentExtension.swift */; };
 		58D3F9481AD2FBC5007AD24B /* CourseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D3F9471AD2FBC5007AD24B /* CourseTableViewController.swift */; };
 		58D3F94B1AD31875007AD24B /* CourseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D3F9491AD31875007AD24B /* CourseTableViewCell.swift */; };
 		58D3F94C1AD31875007AD24B /* CourseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58D3F94A1AD31875007AD24B /* CourseTableViewCell.xib */; };
@@ -84,6 +85,7 @@
 		58C424B51AE985050068D5EA /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		58C424B71AEB3B810068D5EA /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		58C65D121AE0629F00C9FE61 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Date.swift; path = ../Date.swift; sourceTree = "<group>"; };
+		58D223051AF887FD00CAE1DE /* AssignmentExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssignmentExtension.swift; sourceTree = "<group>"; };
 		58D3F9471AD2FBC5007AD24B /* CourseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CourseTableViewController.swift; path = ../CourseTableViewController.swift; sourceTree = "<group>"; };
 		58D3F9491AD31875007AD24B /* CourseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseTableViewCell.swift; sourceTree = "<group>"; };
 		58D3F94A1AD31875007AD24B /* CourseTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CourseTableViewCell.xib; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 			children = (
 				586B24141AA1E6B200861B8D /* Four_Point_A.xcdatamodeld */,
 				5817DCAF1AD26E24000C96CA /* Assignment.swift */,
+				58D223051AF887FD00CAE1DE /* AssignmentExtension.swift */,
 				5817DCA71AD26D95000C96CA /* Type.swift */,
 				5817DCAD1AD26DE1000C96CA /* Course.swift */,
 				5817DCAB1AD26DCA000C96CA /* Student.swift */,
@@ -353,6 +356,7 @@
 				58E56E801ADA191500834E63 /* AddAssignmentViewController.swift in Sources */,
 				586B24161AA1E6B200861B8D /* Four_Point_A.xcdatamodeld in Sources */,
 				5817DCAA1AD26DAC000C96CA /* Term.swift in Sources */,
+				58D223061AF887FD00CAE1DE /* AssignmentExtension.swift in Sources */,
 				586B24131AA1E6B200861B8D /* AppDelegate.swift in Sources */,
 				58D3F94B1AD31875007AD24B /* CourseTableViewCell.swift in Sources */,
 				587BCC621AD45DFF0006E9BE /* AddCourseViewController.swift in Sources */,
