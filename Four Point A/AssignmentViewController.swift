@@ -57,6 +57,11 @@ class AssignmentViewController: UIViewController, UITableViewDataSource, UITable
         func updateUI() {
             fetchedResultsController.performFetch(nil)
             self.tableView.reloadData()
+            
+            if (fetchedResultsController.fetchedObjects?.count == 0) {
+                setupUI()
+            }
+            
         }
     
         override func viewWillAppear(animated: Bool) {
