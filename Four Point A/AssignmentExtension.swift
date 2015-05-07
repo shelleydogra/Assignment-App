@@ -23,6 +23,15 @@ extension Assignment {
         return days
     }
 
-    
+    var percent: Double {
+        get {
+            var pp = self.pointsPossible
+            var pr = self.pointReceived
+            
+            var percentage = (pr.doubleValue/pp.doubleValue) * 100
+            
+            return percentage
+        }
+    }
     
 }

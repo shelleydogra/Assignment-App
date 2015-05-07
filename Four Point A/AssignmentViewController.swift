@@ -18,6 +18,9 @@ class AssignmentViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var daysLeftLabel: UILabel!
     @IBOutlet weak var daysLeftStaticLabel: UILabel!
     
+    @IBOutlet weak var pointsReceivedLabel: UILabel!
+    @IBOutlet weak var pointsPossibleLabel: UILabel!
+    @IBOutlet weak var percentageLabel: UILabel!
 
     
     
@@ -210,6 +213,15 @@ class AssignmentViewController: UIViewController, UITableViewDataSource, UITable
         } else {
             daysLeftLabel.text = "Overdue by " + String(abs(assignment.daysLeft)) + " days"
         }
+        
+        // score labels
+        
+        pointsReceivedLabel.text = assignment.pointReceived.description
+        pointsPossibleLabel.text = assignment.pointsPossible.description
+        
+        var per = assignment.percent.decimal(".2")
+        
+        percentageLabel.text = per + "%"
         
         daysLeftStaticLabel.text = " Days Left"
         

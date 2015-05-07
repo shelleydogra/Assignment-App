@@ -36,7 +36,6 @@ extension Course {
             var pr: AnyObject = rAssignment.valueForKeyPath("@sum.pointReceived")!
             var pp: AnyObject = rAssignment.valueForKeyPath("@sum.pointsPossible")!
             var per: Double = (pr.doubleValue/pp.doubleValue) * 100
-            println("PER::::: \(per)")
             return per
             
             

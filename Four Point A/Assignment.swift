@@ -27,7 +27,6 @@ class Assignment: NSManagedObject {
     override func awakeFromInsert() {
         super.awakeFromInsert()
         
-        self.pointReceived = 666
     }
     
     
