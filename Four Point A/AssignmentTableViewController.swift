@@ -19,6 +19,7 @@ class AssignmentTableViewController: UITableViewController, NSFetchedResultsCont
     var assignment: Assignment?
     
     
+    
     // WE HAVE TO FETCH assignment FOR THE APPROPRIATE Course
     lazy var fetchRequest: NSFetchRequest = {
         
@@ -79,8 +80,7 @@ class AssignmentTableViewController: UITableViewController, NSFetchedResultsCont
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("AssignmentCell", forIndexPath: indexPath) as! UITableViewCell
-        
-        
+
         configureCell(cell, atIndexPath: indexPath)
         
         return cell
@@ -88,6 +88,10 @@ class AssignmentTableViewController: UITableViewController, NSFetchedResultsCont
     
     func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
         let assignment = fetchedResultsController.objectAtIndexPath(indexPath) as! Assignment
+    
+        var percentage = course.percentageGrade.decimal(".2")
+        
+        println("TOTAL Points: \(course.totalPointsReceived) / \(course.totalPointsPossible) GRADE: \(percentage)%")
         
         cell.textLabel?.text = assignment.name
         
@@ -97,9 +101,15 @@ class AssignmentTableViewController: UITableViewController, NSFetchedResultsCont
     
     func setupUI() {
       
+        //  HEADING Assignments View
+        self.title = course.name + " Assignments"
+        
+        
         //setupBackGroundImage()
         
     }
+    
+
     
     func setupBackGroundImage() {
         // background image .alpha() is an extension of UIImage in FILE -> Image.swift

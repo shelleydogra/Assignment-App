@@ -22,4 +22,9 @@ class Course: NSManagedObject {
     @NSManaged var rAssignment: NSSet
     @NSManaged var rTerm: Term
 
+    
+    
+    
 }
+
+

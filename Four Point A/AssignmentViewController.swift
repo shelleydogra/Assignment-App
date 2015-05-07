@@ -14,7 +14,11 @@ class AssignmentViewController: UIViewController, UITableViewDataSource, UITable
     // MARK:- OUTLETS
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var assignmentNameLabel: UILabel!
+    @IBOutlet weak var courseNameLabel: UILabel!
     @IBOutlet weak var daysLeftLabel: UILabel!
+    @IBOutlet weak var daysLeftStaticLabel: UILabel!
+    
+    @IBOutlet weak var submitButtonOutlet: UIButton!
     
     
     let textCellIdentifier = "TextCell"
@@ -27,12 +31,10 @@ class AssignmentViewController: UIViewController, UITableViewDataSource, UITable
     
     
     
+    
     // MARK: -
     // WE HAVE TO FETCH A COURSE FOR THE APPROPRIATE STUDENT
     lazy var fetchRequest: NSFetchRequest = {
-        
-        
-        
         // ENTITY -> Assignment
         let fr = NSFetchRequest (entityName: "Assignment")
         
@@ -41,7 +43,12 @@ class AssignmentViewController: UIViewController, UITableViewDataSource, UITable
         
         //****** PREDICATE GIVES US THE Assignment with predicate
         
-        fr.predicate = NSPredicate(format: "isSubmitted == 0")
+        let submittedPredicate = NSPredicate(format: "isSubmitted == 0")
+        
+        
+        let sumPredicate = NSPredicate(format: "@sum.pointsPossible > 0")
+        
+        fr.predicate = NSCompoundPredicate.andPredicateWithSubpredicates([submittedPredicate, sumPredicate])
         
         return fr
         }()
@@ -68,14 +75,16 @@ class AssignmentViewController: UIViewController, UITableViewDataSource, UITable
             super.viewWillAppear(true)
             updateUI()
         }
-    
+    @IBAction func submitButton(sender: UIButton) {
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupUI()
         delegationHandler()
-        
+    
 
         // MARK:- DATE TESTING
         // MARK:-
@@ -117,9 +126,11 @@ class AssignmentViewController: UIViewController, UITableViewDataSource, UITable
         // GRAB THE CURRENT OBJECT FETCHED
         let assignment = fetchedResultsController.objectAtIndexPath(indexPath) as! Assignment
         
+        
         // Populate Cell
         cell.textLabel?.text = assignment.name
         cell.detailTextLabel?.text = assignment.dueDate.formattedMedium
+        
         
         return cell
     }
@@ -131,13 +142,16 @@ class AssignmentViewController: UIViewController, UITableViewDataSource, UITable
         
         let assignment = fetchedResultsController.objectAtIndexPath(indexPath) as! Assignment
         
+        assignmentNameLabel.text = assignment.name
+        courseNameLabel.text = assignment.rCourse.name
         
-        assignmentNameLabel.text = assignment.rCourse.name
+        if (assignment.daysLeft >= 0) {
+            daysLeftLabel.text = String(assignment.daysLeft)
+        } else {
+            daysLeftLabel.text = "Overdue by " + String(abs(assignment.daysLeft)) + " days"
+        }
         
-        
-        
-        daysLeftLabel.text = String(assignment.daysLeft)
-        
+        daysLeftStaticLabel.text = " Days Left"
         
     }
 
@@ -147,9 +161,6 @@ class AssignmentViewController: UIViewController, UITableViewDataSource, UITable
     }
     
 
-    
-
-    
 
     // INITIAL VIEW METHODS
     func setupUI() {
@@ -157,7 +168,16 @@ class AssignmentViewController: UIViewController, UITableViewDataSource, UITable
         assignmentNameLabel.attributedText = NSAttributedString(string: "Assignment")
         assignmentNameLabel.textAlignment = NSTextAlignment.Center
         
-        daysLeftLabel.text = "Days Left"
+        // Course Name Label Initial setup
+        courseNameLabel.attributedText = NSAttributedString(string: "Course")
+        courseNameLabel.textAlignment = NSTextAlignment.Center
+        courseNameLabel.textColor = UIColor.whiteColor()
+        
+        daysLeftStaticLabel.text = " Days Left"
+        
+        
+        
+        daysLeftLabel.text = " "
         setupBackGroundImage()
  
     }

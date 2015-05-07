@@ -24,7 +24,7 @@ class CourseTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        courseNameLabel.minimumScaleFactor = CGFloat(0.70)
+        //courseNameLabel.minimumScaleFactor = CGFloat(0.70)
         
         //Set Color of the labels
         courseNameLabel.textColor = colorForCellLabel

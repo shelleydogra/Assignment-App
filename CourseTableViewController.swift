@@ -39,6 +39,9 @@ class CourseTableViewController: UITableViewController, NSFetchedResultsControll
         return fr
         }()
     
+    
+    
+    
     // USING THE FETCHED RESULT WE WILL INSTANTIATE THE RESULTS CONTROLLER
     lazy var fetchedResultsController: NSFetchedResultsController = {
         var frc: NSFetchedResultsController = NSFetchedResultsController(fetchRequest: self.fetchRequest, managedObjectContext: self.studentData, sectionNameKeyPath: nil, cacheName: nil)
@@ -47,14 +50,46 @@ class CourseTableViewController: UITableViewController, NSFetchedResultsControll
         return frc
         }()
 
+
+    lazy var assignmentFR: NSFetchRequest = {
+        
+        // ENTITY -> Assignment
+        let fr = NSFetchRequest (entityName: "Assignment")
+        
+        // SORT -> NAME OF Assignment
+        fr.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+        
+        //****** PREDICATE
+        //fr.predicate = NSPredicate(format: "takenByStudent.name == %@", self.student.name)
+        
+        fr.predicate = NSPredicate(format: "rCourse == %@", self.course!)
+        return fr
+        }()
+    
+    
+    
+    
+    // USING THE FETCHED RESULT WE WILL INSTANTIATE THE RESULTS CONTROLLER
+    lazy var assignmentFRC: NSFetchedResultsController = {
+        var frc: NSFetchedResultsController = NSFetchedResultsController(fetchRequest: self.fetchRequest, managedObjectContext: self.studentData, sectionNameKeyPath: nil, cacheName: nil)
+        frc.delegate = self
+        
+        return frc
+        }()
     
     
     
     
     
-//    func fetchData() -> NSFetchedResultsController {
-//        let frc = fetchedStudentEntity.fetchedResultsController
-//        return frc
+    
+//    func calculateCourseGrade(cell: CourseTableViewCell, indexPath: NSIndexPath) -> Double {
+//        var assignment = fetchedResultsController.mutableSetValueForKeyPath("rAssignment.name") as NSMutableSet
+//        
+//        println("YYYYY: \(assignment)")
+//        
+//        
+//        
+//        return 0.0
 //    }
 
     func updateUI() {
@@ -81,6 +116,10 @@ class CourseTableViewController: UITableViewController, NSFetchedResultsControll
     }
     
     func setupUI() {
+        
+        //Title for Courses View Controller
+        self.title = "Courses"
+        
         setupBackGroundImage()
 
         //self.tableView.backgroundColor = UIColor.blueColor()
@@ -100,13 +139,10 @@ class CourseTableViewController: UITableViewController, NSFetchedResultsControll
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // MARK: - Table view data source
- 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        
         return 1
     }
 
@@ -120,8 +156,9 @@ class CourseTableViewController: UITableViewController, NSFetchedResultsControll
         let cell = tableView.dequeueReusableCellWithIdentifier("CourseCell", forIndexPath: indexPath) as! CourseTableViewCell
         cell.backgroundColor  = UIColor.clearColor()
         
+        //var grade = calculateCourseGrade(cell, indexPath: indexPath)
         
-            configureCell(cell, indexPath: indexPath)
+        configureCell(cell, indexPath: indexPath)
 
         
         return cell
@@ -136,6 +173,12 @@ class CourseTableViewController: UITableViewController, NSFetchedResultsControll
         cell.courseNameLabel?.text = course.name as String
         cell.courseCellLabel2?.text =  course.creditHours.description + " Hrs."
         cell.countOfAssignmentsDueLabel?.text = course.rAssignment.count.description + " Due"
+
+        if (course.rAssignment.count > 0) {
+            cell.gradePercentageLabel?.text = course.percentageGrade.decimal(".2") + "%"
+        } else {
+            cell.gradePercentageLabel?.text = "Course %s"
+        }
         
     }
 

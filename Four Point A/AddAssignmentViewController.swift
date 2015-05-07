@@ -27,6 +27,7 @@ class AddAssignmentViewController: UIViewController, UIPickerViewDataSource, UIP
     
     @IBOutlet weak var dueDateLabel: UILabel!
     @IBOutlet weak var pointsLabel: UILabel!
+    
     // OUTLETS
     @IBOutlet weak var dateSelector: UIDatePicker!
     @IBOutlet weak var pointsPickerView: UIPickerView!
@@ -271,7 +272,7 @@ class AddAssignmentViewController: UIViewController, UIPickerViewDataSource, UIP
         
         label.textAlignment = NSTextAlignment.Center
         label.font = UIFont.boldSystemFontOfSize(20)
-        label.textColor = UIColor.blueColor()
+        label.textColor = UIColor.purpleColor()
         label.alpha = 1.0
         label.text = pickerData[component][row]
         
