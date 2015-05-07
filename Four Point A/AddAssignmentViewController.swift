@@ -153,9 +153,9 @@ class AddAssignmentViewController: UIViewController, UIPickerViewDataSource, UIP
             assignment.pointsPossible = localPointsPossible!
             
             assignment.pointReceived = localPointsReceived!
-            if (assignment.pointReceived != 0) {
-                assignment.isSubmitted = true
-            }
+//            if (assignment.pointReceived != 0) {
+//                assignment.isSubmitted = true
+//            }
          
             var error: NSError? = nil
             studentData.save(&error)

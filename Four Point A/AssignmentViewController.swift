@@ -18,18 +18,18 @@ class AssignmentViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var daysLeftLabel: UILabel!
     @IBOutlet weak var daysLeftStaticLabel: UILabel!
     
-    @IBOutlet weak var submitButtonOutlet: UIButton!
+
     
     
     let textCellIdentifier = "TextCell"
     
     let studentData = CDStore.studentData.managedObjectContext!
 
-    var assignment: Assignment?
+    var assignment: Assignment!
     
     var debug: Debug?
     
-    
+
     
     
     // MARK: -
@@ -46,10 +46,8 @@ class AssignmentViewController: UIViewController, UITableViewDataSource, UITable
         let submittedPredicate = NSPredicate(format: "isSubmitted == 0")
         
         
-        let sumPredicate = NSPredicate(format: "@sum.pointsPossible > 0")
-        
-        fr.predicate = NSCompoundPredicate.andPredicateWithSubpredicates([submittedPredicate, sumPredicate])
-        
+        //fr.predicate = NSCompoundPredicate.andPredicateWithSubpredicates([submittedPredicate, sumPredicate])
+        fr.predicate = submittedPredicate
         return fr
         }()
     
@@ -70,14 +68,13 @@ class AssignmentViewController: UIViewController, UITableViewDataSource, UITable
             }
             
         }
+
     
         override func viewWillAppear(animated: Bool) {
             super.viewWillAppear(true)
             updateUI()
         }
-    @IBAction func submitButton(sender: UIButton) {
-        
-    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -121,26 +118,89 @@ class AssignmentViewController: UIViewController, UITableViewDataSource, UITable
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         // SETUP PROTOTYPE CELL
-        let cell = tableView.dequeueReusableCellWithIdentifier(textCellIdentifier, forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(textCellIdentifier, forIndexPath: indexPath) as! AssignmentTableViewCell
        
         // GRAB THE CURRENT OBJECT FETCHED
         let assignment = fetchedResultsController.objectAtIndexPath(indexPath) as! Assignment
         
         
         // Populate Cell
-        cell.textLabel?.text = assignment.name
-        cell.detailTextLabel?.text = assignment.dueDate.formattedMedium
+        cell.assignmentNameLabel.text = assignment.name
+        cell.dueDateLabel.text = assignment.dueDate.formattedMedium
+        cell.assignmentWeight.text = "weight.."
         
+        
+        // Handle button press in within cell
+        var notSubmittedImage: UIImage = UIImage(named: "icon-42-target-1.png")!
+        var submittedImage: UIImage = UIImage(named: "icon-42-target.png")!
+        if (assignment.isSubmitted == false) {
+            cell.submitButtonOutlet.setBackgroundImage(notSubmittedImage, forState: UIControlState.Normal)
+        } else {
+            cell.submitButtonOutlet.setBackgroundImage(submittedImage, forState: UIControlState.Normal)
+        }
+        cell.submitButtonOutlet.addTarget(self, action: "changeState:", forControlEvents: UIControlEvents.TouchUpInside)
+        cell.submitButtonOutlet.addTarget(self, action: "changeBackState:", forControlEvents: UIControlEvents.TouchDragExit)
         
         return cell
     }
 
+    func changeState(sender: UIButton) {
+        
+        //get a handle on core data to save changes
+        
+        var pointInSuperView: CGPoint = sender.superview!.convertPoint(sender.center, toView: self.tableView)
+
+        
+        var indexPath: NSIndexPath = self.tableView.indexPathForRowAtPoint(pointInSuperView)!
+        
+        let assignment = fetchedResultsController.objectAtIndexPath(indexPath) as! Assignment
+
+        assignment.isSubmitted = 1
+      
+        //save
+        var error: NSError? = nil
+        studentData.save(&error)
+        
+        if (error != nil) {
+            println("Error while saving in AssignmentVC: \(error)")
+        }
+        
+        self.tableView.reloadData()
+
+    }
+    
+    func changeBackState(sender: UIButton) {
+        
+        //get a handle on core data to save changes
+
+        var pointInSuperView: CGPoint = sender.superview!.convertPoint(sender.center, toView: self.tableView)
+        
+        var indexPath: NSIndexPath = self.tableView.indexPathForRowAtPoint(pointInSuperView)!
+        
+        let assignment = fetchedResultsController.objectAtIndexPath(indexPath) as! Assignment
+        
+        assignment.isSubmitted = 0
+        
+        //save
+        var error: NSError? = nil
+        studentData.save(&error)
+        
+        if (error != nil) {
+            println("Error while saving in AssignmentVC: \(error)")
+        }
+        
+        self.tableView.reloadData()
+        
+    }
+    
+    
     
     // MARK:-  UITableViewDelegate Methods
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
         let assignment = fetchedResultsController.objectAtIndexPath(indexPath) as! Assignment
+        
         
         assignmentNameLabel.text = assignment.name
         courseNameLabel.text = assignment.rCourse.name
@@ -175,7 +235,7 @@ class AssignmentViewController: UIViewController, UITableViewDataSource, UITable
         
         daysLeftStaticLabel.text = " Days Left"
         
-        
+        tableView.backgroundColor = UIColor.clearColor()
         
         daysLeftLabel.text = " "
         setupBackGroundImage()

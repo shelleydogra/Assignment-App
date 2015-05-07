@@ -22,3 +22,13 @@ class Term: NSManagedObject {
     @NSManaged var rStudent: Student
 
 }
+
+extension Term {
+    
+    override func awakeFromInsert() {
+        super.awakeFromInsert()
+        
+        self.name = "Spring 2015"
+        self.gpa = 3.7
+    }
+}

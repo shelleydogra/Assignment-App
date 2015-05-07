@@ -33,6 +33,7 @@
 		58BA374E1AFB51D8008F1FB2 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BA374D1AFB51D8008F1FB2 /* DoubleExtension.swift */; };
 		58BA37501AFB6179008F1FB2 /* Notes in Resources */ = {isa = PBXBuildFile; fileRef = 58BA374F1AFB6179008F1FB2 /* Notes */; };
 		58BA37521AFB6341008F1FB2 /* AssignmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BA37511AFB6341008F1FB2 /* AssignmentTableViewCell.swift */; };
+		58BA37541AFBA3DE008F1FB2 /* SemesterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BA37531AFBA3DE008F1FB2 /* SemesterViewController.swift */; };
 		58C424B61AE985050068D5EA /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C424B51AE985050068D5EA /* Alert.swift */; };
 		58C424B81AEB3B810068D5EA /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 58C424B71AEB3B810068D5EA /* background.png */; };
 		58C65D131AE0629F00C9FE61 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C65D121AE0629F00C9FE61 /* Date.swift */; };
@@ -90,6 +91,7 @@
 		58BA374D1AFB51D8008F1FB2 /* DoubleExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
 		58BA374F1AFB6179008F1FB2 /* Notes */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Notes; sourceTree = "<group>"; };
 		58BA37511AFB6341008F1FB2 /* AssignmentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssignmentTableViewCell.swift; sourceTree = "<group>"; };
+		58BA37531AFBA3DE008F1FB2 /* SemesterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemesterViewController.swift; sourceTree = "<group>"; };
 		58C424B51AE985050068D5EA /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		58C424B71AEB3B810068D5EA /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		58C65D121AE0629F00C9FE61 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Date.swift; path = ../Date.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 			children = (
 				58C424B71AEB3B810068D5EA /* background.png */,
 				586B24191AA1E6B200861B8D /* Main.storyboard */,
+				58BA37531AFBA3DE008F1FB2 /* SemesterViewController.swift */,
 				58BA374F1AFB6179008F1FB2 /* Notes */,
 				58E56E871ADAE40800834E63 /* Course Views */,
 				58E56E881ADAE41800834E63 /* Assignment Views */,
@@ -380,6 +383,7 @@
 				58BA37521AFB6341008F1FB2 /* AssignmentTableViewCell.swift in Sources */,
 				5889FE201AF97F080034E615 /* Course.swift in Sources */,
 				582957D51AE6E2A000D20A00 /* Debug.swift in Sources */,
+				58BA37541AFBA3DE008F1FB2 /* SemesterViewController.swift in Sources */,
 				5817DCAC1AD26DCA000C96CA /* Student.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

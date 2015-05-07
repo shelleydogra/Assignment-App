@@ -10,6 +10,19 @@ import UIKit
 
 class AssignmentTableViewCell: UITableViewCell {
 
+    
+    
+    
+    @IBOutlet weak var assignmentWeight: UILabel!
+    @IBOutlet weak var dueDateLabel: UILabel!
+    @IBOutlet weak var assignmentNameLabel: UILabel!
+    
+    
+    @IBOutlet weak var submitButtonOutlet: UIButton!
+    
+    
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,7 +32,7 @@ class AssignmentTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
-        self.backgroundColor = UIColor.lightGrayColor()
+        
     }
 
 }
