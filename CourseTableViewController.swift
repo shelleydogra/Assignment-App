@@ -172,7 +172,7 @@ class CourseTableViewController: UITableViewController, NSFetchedResultsControll
         
         cell.courseNameLabel?.text = course.name as String
         cell.courseCellLabel2?.text =  course.creditHours.description + " Hrs."
-        cell.countOfAssignmentsDueLabel?.text = course.rAssignment.count.description + " Due"
+        cell.countOfAssignmentsDueLabel?.text =  "Assignments: " + course.rAssignment.count.description
 
         if (course.rAssignment.count > 0) {
             cell.gradePercentageLabel?.text = course.percentageGrade.decimal(".2") + "%"

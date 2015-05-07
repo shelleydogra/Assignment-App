@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class AssignmentViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
+class AssignmentViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate, UITextFieldDelegate {
 
     // MARK:- OUTLETS
     @IBOutlet weak var tableView: UITableView!
@@ -24,6 +24,7 @@ class AssignmentViewController: UIViewController, UITableViewDataSource, UITable
 
     
     
+    
     let textCellIdentifier = "TextCell"
     
     let studentData = CDStore.studentData.managedObjectContext!
@@ -31,9 +32,8 @@ class AssignmentViewController: UIViewController, UITableViewDataSource, UITable
     var assignment: Assignment!
     
     var debug: Debug?
-    
 
-    
+    var graded: String = " "
     
     // MARK: -
     // WE HAVE TO FETCH A COURSE FOR THE APPROPRIATE STUDENT
@@ -130,7 +130,7 @@ class AssignmentViewController: UIViewController, UITableViewDataSource, UITable
         // Populate Cell
         cell.assignmentNameLabel.text = assignment.name
         cell.dueDateLabel.text = assignment.dueDate.formattedMedium
-        cell.assignmentWeight.text = "weight.."
+        cell.assignmentWeight.text = " "
         
         
         // Handle button press in within cell
@@ -158,15 +158,30 @@ class AssignmentViewController: UIViewController, UITableViewDataSource, UITable
         
         let assignment = fetchedResultsController.objectAtIndexPath(indexPath) as! Assignment
 
-        assignment.isSubmitted = 1
-      
-        //save
-        var error: NSError? = nil
-        studentData.save(&error)
+        showAlertTapped()
         
-        if (error != nil) {
-            println("Error while saving in AssignmentVC: \(error)")
-        }
+        let seconds = 2.5
+        let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
+        var dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+        
+        dispatch_after(dispatchTime, dispatch_get_main_queue(), {
+ 
+        
+            var doubleValue : Double = NSString(string: self.graded).doubleValue
+        
+            println("dv: \(doubleValue)")
+        
+            assignment.isSubmitted = 1
+            assignment.pointReceived = doubleValue
+            
+            //save
+            var error: NSError? = nil
+            self.studentData.save(&error)
+            println("saved")
+            if (error != nil) {
+                println("Error while saving in AssignmentVC: \(error)")
+            }
+        })
         
         self.tableView.reloadData()
 
@@ -183,7 +198,6 @@ class AssignmentViewController: UIViewController, UITableViewDataSource, UITable
         let assignment = fetchedResultsController.objectAtIndexPath(indexPath) as! Assignment
         
         assignment.isSubmitted = 0
-        
         //save
         var error: NSError? = nil
         studentData.save(&error)
@@ -191,10 +205,59 @@ class AssignmentViewController: UIViewController, UITableViewDataSource, UITable
         if (error != nil) {
             println("Error while saving in AssignmentVC: \(error)")
         }
-        
         self.tableView.reloadData()
-        
     }
+
+    
+     func showAlertTapped() {
+        
+        var inTxtFld = UITextField()
+        //Create the AlertController
+        let actionSheetController: UIAlertController = UIAlertController(title: "Alert", message: "Enter Points", preferredStyle: .Alert)
+        
+        //Create and add the Cancel action
+        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
+            //Cancel
+        }
+        actionSheetController.addAction(cancelAction)
+        
+        //Create and an option action
+        let nextAction: UIAlertAction = UIAlertAction(title: "Save", style: .Default) { action -> Void in
+            println("inTXT: \(inTxtFld.text)")
+            
+            self.graded = inTxtFld.text
+        }
+        actionSheetController.addAction(nextAction)
+        
+        
+        //Add a text field
+        actionSheetController.addTextFieldWithConfigurationHandler { textField -> Void in
+            //TextField configuration
+            textField.textColor = UIColor.blueColor()
+            inTxtFld = textField
+        }
+        
+        //Present the AlertController
+        self.presentViewController(actionSheetController, animated: true, completion: nil)
+       
+    }
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -245,6 +308,11 @@ class AssignmentViewController: UIViewController, UITableViewDataSource, UITable
         courseNameLabel.textAlignment = NSTextAlignment.Center
         courseNameLabel.textColor = UIColor.whiteColor()
         
+        //points label
+        pointsPossibleLabel.text = "Possible"
+        pointsReceivedLabel.text = "Points"
+        percentageLabel.text = "%"
+        
         daysLeftStaticLabel.text = " Days Left"
         
         tableView.backgroundColor = UIColor.clearColor()
@@ -265,6 +333,7 @@ class AssignmentViewController: UIViewController, UITableViewDataSource, UITable
         
         tableView.delegate = self
         tableView.dataSource = self
+        
     }
 
 }
